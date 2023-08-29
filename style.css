@@ -1,99 +1,66 @@
 footer {
   background: #05226e;
 }
-.footer__top {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-}
-.footer__top img {
-  width: 180px;
-}
+
 ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-.footer__mid li:not(:last-child) {
+.list__item ul li:not(:last-child) {
   margin-bottom: 10px;
 }
-.social__icons ul {
-  display: flex;
-  gap: 10px;
-}
 
-.social__icons ul li a {
-  background: #fff;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 300ms;
-  border: 1px solid transparent;
-}
-.social__icons ul li a i {
-  color: #05226e;
-  transition: 300ms;
-}
-
-.social__icons ul li a:hover {
-  background: #05226e;
-  border: 1px solid #fff;
-}
-.social__icons ul li a:hover i {
-  color: #fff;
-}
-
-.small-section {
-  padding: 20px 0;
-}
-.big-section {
-  padding: 40px 0;
-}
-
-.footer__mid {
+.footer__top {
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+ 
 }
-.footer__mid h3 {
+.footer__top h2 {
   color: #fff;
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 10px;
+  text-transform: capitalize;
 }
-
-.footer__mid span,
-.footer__mid p,
-.footer__mid a {
+.footer__top h3 {
   color: #fff;
   font-size: 19px;
-  font-weight: 600;
+  font-weight: 400;
+  margin: 0;
+  text-transform: capitalize;
 }
-.footer__mid p {
-  margin-bottom: 5px;
-  margin-top: 0;
+.footer__top .recommended__on{
+  margin: 40px 0;
 }
-.footer__mid .link__list ul li a {
+.footer__top .recommended__on,.footer__top .recommended__on ul{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.footer__top p,
+.footer__top a,
+.footer__top li {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.footer__top .list__item ul li a {
   text-transform: capitalize;
   font-size: 14px;
 }
-.footer__mid .info p:last-child {
-  font-size: 14px;
+.footer__bottom {
+  padding: 15px 0;
 }
 .footer__bottom span {
   color: #fff;
-  font-size: 14px;
+  font-size: 13px;
   text-align: center;
+  font-weight: 400;
   display: block;
 }
-
-.uk-grid-divider > :not(.uk-first-column)::before {
-  border-left: 1px solid rgba(255, 255, 255, 0.5);
-}
-hr,
-.uk-grid-divider.uk-grid-stack > .uk-grid-margin::before {
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
+.footer__bottom span {
+  margin-bottom: 5px;
 }
