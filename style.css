@@ -64,3 +64,33 @@ ul {
 .footer__bottom span {
   margin-bottom: 5px;
 }
+
+.flex{
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+}
+/*  */
+.testimonial__section{
+  background: #000;
+}
+.testimonial__section .content__footer{
+  padding-top: 20px;
+  border-top: 1px solid #eeeeee;
+}
+.testimonial__section .wrapper{
+  padding: 30px;
+  background: #fff;
+}
+.testimonial__section .wrapper h3{
+  font-weight: 400;
+  font-size: 24px;
+  margin: 0;
+}
+.testimonial__section .wrapper p{
+  font-weight: 400;
+  font-size: 17px;
+  margin: 20px 0;
+  margin-bottom: 30px;
+  color: #444444;
+}
