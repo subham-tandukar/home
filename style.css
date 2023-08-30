@@ -1,96 +1,66 @@
-footer {
-  background: #05226e;
+.section-t {
+  padding-top: 70px;
+}
+.section {
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-.list__item ul li:not(:last-child) {
-  margin-bottom: 10px;
+.content__wrapper{
+  margin-top: 40px;
 }
 
-.footer__top {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
- 
-}
-.footer__top h2 {
-  color: #fff;
-  font-size: 22px;
+.single__head {
+  font-size: 35px;
   font-weight: 400;
-  margin: 0;
-  margin-bottom: 10px;
-  text-transform: capitalize;
-}
-.footer__top h3 {
-  color: #fff;
-  font-size: 19px;
-  font-weight: 400;
-  margin: 0;
-  text-transform: capitalize;
-}
-.footer__top .recommended__on{
-  margin: 40px 0;
-}
-.footer__top .recommended__on,.footer__top .recommended__on ul{
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.footer__top p,
-.footer__top a,
-.footer__top li {
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.footer__top .list__item ul li a {
-  text-transform: capitalize;
-  font-size: 14px;
-}
-.footer__bottom {
-  padding: 15px 0;
-}
-.footer__bottom span {
-  color: #fff;
-  font-size: 13px;
+  color: #000;
+  text-transform: uppercase;
   text-align: center;
-  font-weight: 400;
+}
+.single__room .the__content p{
+  text-align: center;
+}
+
+.room__info {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  justify-content: center;
+}
+.room__info .wrapper{
+  text-align: center;
+  padding: 0 30px;
+}
+.room__info .wrapper:not(:last-child){
+  border-right: 1px solid rgba(0, 0, 0, 0.15); 
+}
+.room__info .wrapper .txt span{
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  margin-top:5px;
   display: block;
 }
-.footer__bottom span {
-  margin-bottom: 5px;
+
+.room__amenities{
+  background: palegoldenrod;
 }
 
-.flex{
-  align-items: center;
-  justify-content: space-between;
-  display: flex;
+.room__amenities ul{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+ list-style-type: none;
+ padding: 0;
+ row-gap: 30px;
+ column-gap: 60px;
 }
-/*  */
-.testimonial__section{
-  background: #000;
-}
-.testimonial__section .content__footer{
-  padding-top: 20px;
-  border-top: 1px solid #eeeeee;
-}
-.testimonial__section .wrapper{
-  padding: 30px;
-  background: #fff;
-}
-.testimonial__section .wrapper h3{
-  font-weight: 400;
-  font-size: 24px;
-  margin: 0;
-}
-.testimonial__section .wrapper p{
-  font-weight: 400;
-  font-size: 17px;
-  margin: 20px 0;
-  margin-bottom: 30px;
-  color: #444444;
+
+.room__amenities ul li{
+  background: url(./img/icon.png) no-repeat left 3px top 6px;
+    background-size: auto;
+  background-size: 16px !important;
+  vertical-align: middle;
+  padding-left: 25px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15); 
+  padding-bottom: 10px;
 }
