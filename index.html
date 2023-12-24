@@ -5,720 +5,788 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- UIkit CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.23/dist/css/uikit.min.css" />
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="./assets/css/uikit.css">
+    <link rel="stylesheet" href="./assets/css/uikit.min.css">
+    <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
 </head>
 
 <body>
+    <header id="masthead" class="site-header">
+        <div class="uk-container uk-container-large">
+            <div class="uk-flex uk-flex-between uk-flex-middle">
 
-    <!-- Banner Section -->
-    <section class="banner__section">
-        <div class="owl-carousel owl-theme">
-            <div class="item">
-                <figure class="banner__slider">
-                    <picture>
-                        <source srcset="<?php echo get_template_directory_uri() . '/assets/img/banner.png' ?>"
-                            media="(max-width: 1200px)" />
-                        <source srcset="<?php echo get_template_directory_uri() . '/assets/img/banner.png' ?>"
-                            media="(max-width: 768px)" />
-                        <img loading="lazy" src="<?php echo get_template_directory_uri() . '/assets/img/banner.png' ?>"
-                            alt="">
-                    </picture>
-                    <div class="banner__text">
-                        <div class="uk-container">
-                            <div class="banner__heading"> Come, experience Nepal’s magic through <span>Mystik
-                                    Mountains</span> and
-                                see the difference ! </div>
-                        </div>
-                    </div>
-                </figure>
-            </div>
-        </div>
-    </section>
-    <!-- Banner Section -->
-
-    <!-- About Section -->
-    <section class="section about__section">
-        <div class="uk-container">
-            <h2 class="about__heading">
-                <span>Mystic Mountains</span>
-                adventures and holidays
-            </h2>
-        </div>
-        <div class="uk-container uk-container-small">
-            <div class="the__content content__wrapper">
-                <p><span>Mystik Mountains Adventure and Holidays</span> is experiential travel company , that designs
-                    and organizes
-                    the most memorable life changing travel experiences for travelers all around the world who want to
-                    travel and explore around beautiful Himalayas of Nepal , Bhutan and Tibet .We create unique
-                    experiences for you that allows to connect with local communities, people and places while
-                    supporting socially responsible and purposeful travel.. Whether you’re seeking adventure, leisure
-                    holidays, volunteering, cultural tours, spiritual well-being. We will work with you and design your
-                    holiday. We provide unparalleled customization so you get the best experiences .</p>
-            </div>
-            <div class="btn__center">
-                <a href="#" class="btn"><span>Explore</span></a>
-            </div>
-        </div>
-
-    </section>
-    <!-- About Section -->
-
-    <!-- Destination Section -->
-    <section class="section destination__section pt-0">
-        <div class="uk-container">
-            <h2 class="main__heading">Destinations</h2>
-        </div>
-        <div class="uk-container uk-container-expand">
-            <div class="destination__flex content__wrapper">
-                <div class="des__img">
-                    <a href="#">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/destination1.png' ?>" alt="">
-                    </a>
-                    <div class="img__btn">
-                        <div class="arrow">
-                            <a href="#">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/img/arrow.svg' ?>" alt="">
-                            </a>
-                        </div>
-                        <div class="txt">
-                            <h3>
-                                <a href="#">
-                                    Nepal
-                                    <span>
-                                        A Place of Diversity
-                                    </span>
-                                </a>
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="des__img">
-                    <a href="#">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/destination2.png' ?>" alt="">
-                    </a>
-                    <div class="img__btn">
-                        <div class="arrow">
-                            <a href="#">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/img/arrow.svg' ?>" alt="">
-                            </a>
-                        </div>
-                        <div class="txt">
-                            <h3>
-                                <a href="#">
-                                    Bhutan
-                                    <span>
-                                        Trip to Land of Happiness
-                                    </span>
-                                </a>
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Destination Section -->
-
-    <!-- Travel style section -->
-    <section class="section travel__style pt-0">
-        <div class="uk-container">
-            <h2 class="main__heading">Let’s start exploring</h2>
-            <h2 class="sub__heading">choose your travel style that matches you</h2>
-
-            <div class="content__wrapper">
-                <div class="uk-grid uk-child-width-1-3@m uk-child-width-1-2@s" data-uk-grid>
-                    <div>
-                        <div class="hover__img">
-                            <a href="#">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/img/img1.png' ?>" alt="">
-                            </a>
-
-                            <div class="overlay__txt">
-                                <h3>
-                                    Adventure Trekking
-                                </h3>
-                                <div class="arrow">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/arrow.svg' ?>"
-                                        alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="hover__img">
-                            <a href="#">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/img/img2.png' ?>" alt="">
-                            </a>
-
-                            <div class="overlay__txt">
-                                <h3>
-                                    Cultural and Spiritual Trips
-                                </h3>
-                                <div class="arrow">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/arrow.svg' ?>"
-                                        alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="hover__img">
-                            <a href="#">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/img/img3.png' ?>" alt="">
-                            </a>
-
-                            <div class="overlay__txt">
-                                <h3>
-                                    Private and Luxury
-                                </h3>
-                                <div class="arrow">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/arrow.svg' ?>"
-                                        alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="hover__img">
-                            <a href="#">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/img/img4.png' ?>" alt="">
-                            </a>
-
-                            <div class="overlay__txt">
-                                <h3>
-                                    Bhutan - Trip to Land of Happiness
-                                </h3>
-                                <div class="arrow">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/arrow.svg' ?>"
-                                        alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="hover__img">
-                            <a href="#">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/img/img5.png' ?>" alt="">
-                            </a>
-
-                            <div class="overlay__txt">
-                                <h3>
-                                    Off-Beaten Treks
-                                </h3>
-                                <div class="arrow">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/arrow.svg' ?>"
-                                        alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="hover__img">
-                            <a href="#">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/img/img6.png' ?>" alt="">
-                            </a>
-
-                            <div class="overlay__txt">
-                                <h3>
-                                    Volunteer - Travel for Positive Impact
-                                </h3>
-                                <div class="arrow">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/arrow.svg' ?>"
-                                        alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="uk-container uk-container-small">
-                <div class="note content__wrapper">
-                    <span>
-                        If you can't find the trip that matches you , write to us at <a
-                            href="mailto:info@mystikmountains.com">info@mystikmountains.com</a>, we will create
-                        unique and memorable trip as per your choices .
+                <div class="hamburger-toggle">
+                    <span class="hamburger-menu">
+                        <span class="line line--top"></span>
+                        <span class="line line--middle"></span>
+                        <span class="line line--bottom"></span>
                     </span>
                 </div>
-            </div>
-        </div>
-    </section>
-    <!-- Travel style section -->
 
-    <!-- Why we are unique section -->
-    <section class="section why__weare__unique">
-        <div class="uk-container">
-            <h2 class="heading2">
-                Why
-                <span>we are unique?</span>
-            </h2>
-            <div class="sub__title">
-                <div class="uk-container uk-container-xsmall">
-                    <p>
-                        Under our motto ‘Blazing New Paths in Travel’, Asian Trails’ extensive knowledge of its
-                        business-to-business customers has paved the way for unique, exciting and
-                        value for money itineraries where an eye for detail, a personalized
-                        approach and speaking the language of our guests has enabled
-                        us to truly blaze new paths in travel across Asia.
-                    </p>
+                <div class="site-branding">
+                    <img src="./assets/img/logo.png" alt="" style="width: 200px;">
+                </div><!-- .site-branding -->
+
+                <div class="header__info">
+                    <div>
+                        <a href="#">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                    <div class="whatsapp">
+                        For Reservation
+                        <a href="#">
+                            9851125635
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="content__wrapper">
-                <div class="uk-grid uk-child-width-1-3@m uk-child-width-1-2@s" data-uk-grid>
-                    <div>
-                        <div class="wrapper">
-                            <div class="icon">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/img/icon1.svg' ?>" alt="">
-                            </div>
-                            <div class="title">
-                                <h3>
-                                    Own
+        </div>
+    </header><!-- #masthead -->
+
+    <div class="fullscreen__menu">
+        <div class="close__menu" style="font-size: 50px;">
+            close
+        </div>
+    </div>
+
+    <main id="primary" class="site-main">
+
+        <!-- Banner Section -->
+        <section class="banner__section">
+            <div class="fixed__banner">
+                <div class="">
+                    <div class="item">
+                        <div class="banner__slider">
+                            <picture>
+                             
+                                <img loading="lazy" src="./assets/img/banner.png" alt="">
+                            </picture>
+                        </div>
+                        <div class="banner__text homebanner-txt">
+                            <div class="uk-container">
+                                <div class="banner__heading">todays special</div>
+                                <div class="banner__subheading">
+                                    Pork Steak
                                     <span>
-                                        Operations
+                                        Served with tangy green salad
                                     </span>
-                                </h3>
+                                </div>
                             </div>
-                            <div class="the__content">
-                                <p>A firm believer in operating in key destinations under our own name, Asian Trails is
-                                    operational with more than 30 owner-operated offices in East and South-East Asia. We
-                                    cover all aspects of quality</p>
-                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- Banner Section -->
+
+        <!-- About Section -->
+        <section class="about__section section">
+            <div class="uk-container uk-container-large">
+                <div class="about__container">
+
+                    <div class="about__logo">
+                        <img src="/assets/img/logo2.png" alt="">
+                    </div>
+
+                    <h2 class="about__heading">
+                        The first Dine in <span>Bottleshop</span> in Nepal
+                    </h2>
+
+                    <div class="about__bg">
+                        <img src="/assets/img/vector.png" alt="">
+                    </div>
+
+                    <div class="about__content container-small">
+                        <div class="the__content">
+                            <p>
+                                It is run by a private family. <br> <span>
+                                    Charming
+                                </span> is equipped with solar panels, all rooms are well
+                                furnished.
+                            </p>
+
+                            <p>
+                                <span>Charming</span> has a tranquil roof terrace with views overlooking the National
+                                Park,
+                                rice
+                                fields and beyond to the Annapurna range.
+                            </p>
+                        </div>
+
+                        <div class="btn__center">
+                            <a href="#" class="btn-txt">Know more </a>
                         </div>
                     </div>
-                    <div>
-                        <div class="wrapper">
-                            <div class="icon">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/img/icon2.svg' ?>" alt="">
-                            </div>
-                            <div class="title">
-                                <h3>
-                                    Customer
-                                    <span>
-                                        Focused
-                                    </span>
-                                </h3>
-                            </div>
-                            <div class="the__content">
-                                <p>We speak your language! Our value-for-money approach with (y)our customer at heart
-                                    has been at the forefront since our inception. We are driven in igniting the
-                                    wanderlust in travellers,</p>
-                            </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- About Section -->
+
+        <!-- Mystery Box -->
+        <section class="mystery__box section">
+            <div class="uk-container">
+                <div class="mystery__container">
+
+                    <div class="mystery__wrapper" data-uk-parallax="x: -100,0;viewport: 0.5; ">
+                        <h2 class="mystery__title">
+                            mystery <br>
+                            Box
+                        </h2>
+                        <div class="the__content white center">
+                            <p>
+                                Receive a random prize with an Affliction theme! It'll appear
+                            </p>
+                        </div>
+                        <div class="mystery__price">
+                            Rs. 5000
+                        </div>
+                        <div class="btn__center">
+                            <a href="#" class="btn-txt light">Buy now </a>
                         </div>
                     </div>
-                    <div>
-                        <div class="wrapper">
-                            <div class="icon">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/img/icon3.svg' ?>" alt="">
-                            </div>
-                            <div class="title">
-                                <h3>
-                                    Global
-                                    <span>
-                                        Presentation
-                                    </span>
-                                </h3>
-                            </div>
-                            <div class="the__content">
-                                <p>Asian Trails prides itself on being present in every corner of ‘our Asia’ with our
-                                    own dedicated offices and professionally-trained travel experts, backed by
-                                    representative offices across the globe</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="wrapper">
-                            <div class="icon">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/img/icon4.svg' ?>" alt="">
-                            </div>
-                            <div class="title">
-                                <h3>
-                                    No
-                                    <span>
-                                        Compromises
-                                    </span>
-                                </h3>
-                            </div>
-                            <div class="the__content">
-                                <p>We take guests to the ‘Real Asia’ so they touch, taste and experience the beating
-                                    heart of every destination they visit. This comes with the assurance of operating in
-                                    line with our core value of ‘practicing</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="wrapper">
-                            <div class="icon">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/img/icon5.svg' ?>" alt="">
-                            </div>
-                            <div class="title">
-                                <h3>
-                                    Responsible
-                                    <span>
-                                        Operations
-                                    </span>
-                                </h3>
-                            </div>
-                            <div class="the__content">
-                                <p>Choosing carefully, our approach in operating sustainably and supporting the right
-                                    causes are recognized throughout the travel industry. From treading lightly where
-                                    needed, to adhering to globa</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="wrapper">
-                            <div class="icon">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/img/icon6.svg' ?>" alt="">
-                            </div>
-                            <div class="title">
-                                <h3>
-                                    Passionate
-                                    <span>
-                                        about Travels
-                                    </span>
-                                </h3>
-                            </div>
-                            <div class="the__content">
-                                <p>Our offices span all the corners of our destinations, guided by the principle that
-                                    travel is more than just an experience. Engrained in our DNA, no stone is left
-                                    unturned to deliver exploratory </p>
-                            </div>
-                        </div>
+
+                    <div class="mystery__img" data-uk-parallax="x: 100,0;viewport: 0.5; ">
+                        <img src="/assets/img/mystery-box.png" alt="">
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Why we are unique section -->
+        </section>
+        <!-- Mystery Box -->
 
-    <!-- Sustainability Engagement section -->
-    <section class="section sustainability__engagement">
-        <div class="uk-container">
-            <h2 class="main__heading">Our Sustainability Engagement</h2>
-        </div>
-        <div class="uk-container uk-container-xsmall">
-            <div class="the__content sub__list mt-20">
-                <ul>
-                    <li>Value responsible travel and sustainable practices</li>
-                    <li> Support local communities (education, health and
-                        employment)</li>
-                    <li>Contribute 10% of profit to READI Nepal to educate underprivileged children</li>
-                </ul>
-            </div>
-        </div>
-        <div class="uk-container uk-container-expand">
-            <div class="reponsible__wrapper">
-                <div class="uk-grid uk-child-width-1-3 uk-grid-collapse" data-uk-grid>
-                    <div class="wrapper">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/responsible1.png' ?>" alt="">
-                    </div>
-                    <div class="wrapper">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/responsible2.png' ?>" alt="">
-                    </div>
-                    <div class="wrapper">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/responsible3.png' ?>" alt="">
-                    </div>
+        <!-- Feedback section -->
+        <section class="section feedback__section">
+            <div class="uk-container">
+                <div class="center">
+                    <h2 class="main__heading">
+                        <span>
+                            Feedback from a
+                        </span>
+                        mystery shopper
+                    </h2>
                 </div>
+                <div class="feedback__container">
 
-            </div>
-        </div>
+                    <div class="container-small">
+                        <div class="the__content uk-text-center">
+                            <p>
+                                It is run by a private family. <br> <span>
+                                    Charming
+                                </span> is equipped with solar panels, all rooms are well
+                                furnished.
+                            </p>
 
-        <div class="reponsible__wrapper">
-            <div class="sub__title">
-                <div class="uk-container uk-container-xsmall">
-                    <p>
-                        We're changing the way travel impacts local communities. We engage and support local community
-                        projects to improve Education, Health, Community tourism, Agriculture, Trail Building and
-                        Tourism
-                        Infrastructure Development.
-                    </p>
-                </div>
-            </div>
-            <div class="btn__center">
-                <a href="#" class="btn"><span>read more</span></a>
-            </div>
-        </div>
-    </section>
-    <!-- Sustainability Engagement section -->
-
-
-    <!-- Blog section -->
-    <section class="section blog__section">
-        <div class="uk-container">
-            <h2 class="main__heading">Our Blogs and Stories</h2>
-            <h2 class="sub__heading">some amazing blogs that has featured and had say about our trips</h2>
-
-            <div class="content__wrapper">
-                <div class="uk-grid uk-child-width-1-3@m uk-child-width-1-2@s" data-uk-grid>
-                    <div>
-                        <div class="hover__img">
-                            <a href="#">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/img/blog1.png' ?>" alt="">
-                            </a>
+                            <p>
+                                <span>Charming</span> has a tranquil roof terrace with views overlooking the National
+                                Park,
+                                rice
+                                fields and beyond to the Annapurna range.
+                            </p>
                         </div>
-                        <h3 class="link__title mt-20">
-                            <a href="#">
-                                The Celebration Foods Of Nepal’s Newari Community
-                            </a>
-                        </h3>
-                        <div class="the__content mt-10">
-                            <p>Our offices span all the corners of our destinations, guided by the principle that travel
-                                is more than just an experience. Engrained in our DNA, no </p>
-                        </div>
-                        <div class="mt-30">
-                            <a href="#" class="btn btn-light"><span>read more</span></a>
-                        </div>
+
                     </div>
-                    <div>
-                        <div class="hover__img">
-                            <a href="#">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/img/blog2.png' ?>" alt="">
-                            </a>
-                        </div>
-                        <h3 class="link__title mt-20">
-                            <a href="#">
-                                Not about Everest
-                            </a>
-                        </h3>
-                        <div class="the__content mt-10">
-                            <p>This adventure had become so much bigger than Everest. That was such a minor detail among
-                                the endless treks and new friendships and early mornings and meals you didn’t feel like
-                                eating but knew</p>
-                        </div>
-                        <div class="mt-30">
-                            <a href="#" class="btn btn-light"><span>read more</span></a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="hover__img">
-                            <a href="#">
-                                <img src="<?php echo get_template_directory_uri() . '/assets/img/blog3.png' ?>" alt="">
-                            </a>
-                        </div>
-                        <h3 class="link__title mt-20">
-                            <a href="#">
-                                Amazing Experience
-                            </a>
-                        </h3>
-                        <div class="the__content mt-10">
-                            <p>Amazing experience with profesionals, We enjoyed a lot in this trip. They showed us an
-                                authentic Nepal with good guides. We did a trekking, paragliding, we visited Heritage
-                                Sites and we stayed in</p>
-                        </div>
-                        <div class="mt-30">
-                            <a href="#" class="btn btn-light"><span>read more</span></a>
-                        </div>
+                    <div class="btn__row">
+                        <a href="#" class="btn-txt">View all feedbacks</a>
+                        <a href="#" class="btn-txt primary">Post your feedback</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Blog section -->
+        </section>
+        <!-- Feedback section -->
 
-    <!-- Partner Section -->
-    <section class="partner__section section">
-        <div class="uk-container">
-            <div class="owl-carousel owl-theme">
-                <div class="item">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/partner-1.png' ?>" alt="">
-                </div>
-                <div class="item">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/partner-2.png' ?>" alt="">
-                </div>
-                <div class="item">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/partner-3.jpg' ?>" alt="">
-                </div>
-                <div class="item">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/partner-4.png' ?>" alt="">
-                </div>
-                <div class="item">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/partner-5.png' ?>" alt="">
-                </div>
-                <div class="item">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/partner-6.png' ?>" alt="">
-                </div>
+
+        <!-- Why us section -->
+        <section class="why__us">
+            <div class="why__us__bg">
+                <img src="/assets/img/why-us-bg.svg" alt="">
             </div>
-        </div>
-    </section>
-    <!-- Partner Section -->
 
-    <footer>
-        <div class="site-footer">
-            <div class="top__footer">
-                <div class="uk-container">
-                    <div class="wrapper">
+            <div class="uk-container uk-container-large">
+                <div class="why__container">
+
+                    <h2 class="main__heading white">
+                        Why us
+                    </h2>
+
+                    <div class="why__wrapper uk-grid uk-child-width-1-3" data-uk-grid
+                        data-uk-scrollspy="target: > div; cls: uk-animation-slide-bottom; delay: 300">
                         <div>
-                            <img class="custom-logo" src="./img/logo.svg" alt="">
-                        </div>
-                        <div>
-                            <div class="top__footer__link">
-                                <ul>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">Home</a></li>
-                                </ul>
+                            <div class="why__card flex__card">
+                                <div class="why__img">
+                                    <div>
+                                        <img src="/assets/img/why-img1.png" alt="">
+                                    </div>
+
+                                    <div>
+                                        <img src="/assets/img/why-img4.png" alt="">
+                                    </div>
+
+                                </div>
+                                <div class="why__overlay flex__overlay">
+
+                                    <h2 class="why__title">
+                                        Free
+                                        Parking
+                                    </h2>
+                                    <div class="why__subheading">
+                                        Spacious
+                                        Parking Area
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
                         <div>
-                            <div class="footer__socialicon">
-                                <a href="#" class="facebook"><img alt="" src="./img/facebook.svg"></a>
-                                <a href="#" class="insta"><img alt="" src="./img/insta.svg"></a>
-                                <a href="#" class="twitter"><img alt="" src="./img/twitter.svg"></a>
+                            <div class="why__card flex__card">
+                                <div class="why__img">
+                                    <div>
+                                        <img src="/assets/img/why-img2.png" alt="">
+                                    </div>
+
+                                    <div>
+                                        <img src="/assets/img/why-img5.png" alt="">
+                                    </div>
+
+                                </div>
+                                <div class="why__overlay flex__overlay">
+
+                                    <h2 class="why__title">
+                                        Free
+                                        Delivery
+                                    </h2>
+                                    <div class="why__subheading">
+                                        Inside
+                                        Thamel Area
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="why__card flex__card">
+                                <div class="why__img">
+                                    <div>
+                                        <img src="/assets/img/why-img3.png" alt="">
+                                    </div>
+
+                                    <div>
+                                        <img src="/assets/img/why-img6.png" alt="">
+                                    </div>
+
+                                </div>
+                                <div class="why__overlay flex__overlay">
+
+                                    <h2 class="why__title">
+                                        Reasonable
+                                        Price
+                                    </h2>
+                                    <div class="why__subheading">
+                                        for All
+                                        Bar items
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="mid__footer">
-                <div class="uk-container">
-                    <div class="uk-grid uk-child-width-1-4@l uk-child-width-1-3@m uk-child-width-1-2@s" data-uk-grid>
-                        <div>
-                            <div class="footer__info">
+        </section>
+        <!-- Why us section -->
+
+
+        <!-- Event section -->
+        <section class="section event__section">
+            <div class="uk-container uk-position-relative">
+                <div class="flex-between">
+                    <h2 class="main__heading">
+                        Events
+                    </h2>
+
+                    <div class="flex-row">
+                        <div class="container-small">
+                            <div class="the__content uk-text-right">
                                 <p>
-                                    Come, experience Nepal's magic through <span>Mystik Mountains</span> and see the
-                                    difference !
+                                    <span>Charming</span> has a tranquil roof terrace with views overlooking the
+                                    National
+                                    Park, rice fields and
+                                    beyond to the Annapurna range.
                                 </p>
                             </div>
                         </div>
+                        <a href="#" class="btn-txt">View all</a>
 
-                        <div>
-                            <div class="list__wrapper">
-                                <h2 class="footer__title">Adventures</h2>
-                                <div class="list__item">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Everest Base Camp Trek</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Everest Base Camp Trek</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Everest Base Camp Trek</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Everest Base Camp Trek</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                    </div>
+                </div>
+
+                <div class="event__bg">
+                    <img src="/assets/img/event-glass.png" alt="">
+                </div>
+            </div>
+
+            <div class="container-large">
+                <div class="event__container content__wrapper">
+                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" data-uk-slider>
+
+                        <div class="arrow__container">
+                            <div class="prevarrow myarrow">
+                                <a href data-uk-slider-item="previous">
+                                    <img src="/assets/img/arrow.png" alt="arrow" />
+                                </a>
                             </div>
-                            <div class="list__wrapper">
-                                <h2 class="footer__title">Adventures</h2>
-                                <div class="list__item">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Everest Base Camp Trek</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Everest Base Camp Trek</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Everest Base Camp Trek</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Everest Base Camp Trek</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="list__wrapper">
-                                <h2 class="footer__title">Adventures</h2>
-                                <div class="list__item">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Everest Base Camp Trek</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Everest Base Camp Trek</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="list__wrapper">
-                                <h2 class="footer__title">Adventures</h2>
-                                <div class="list__item">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Everest Base Camp Trek</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Everest Base Camp Trek</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="list__wrapper">
-                                <h2 class="footer__title">Adventures</h2>
-                                <div class="list__item">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Everest Base Camp Trek</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Everest Base Camp Trek</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="list__wrapper">
-                                <h2 class="footer__title">Adventures</h2>
-                                <div class="list__item">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Everest Base Camp Trek</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Everest Base Camp Trek</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <div class="nextarrow myarrow">
+                                <a href data-uk-slider-item="next">
+                                    <img src="/assets/img/arrow.png" alt="arrow" />
+                                </a>
                             </div>
                         </div>
 
-                        <div>
-                            <div class="list__wrapper">
-                                <h2 class="footer__title">Adventures</h2>
-                                <div class="list__item">
-                                    <ul>
-                                        <li>
-                                            hello
-                                        </li>
-                                        <li>
-                                            Phone:
-                                            <a href="#">Everest Base Camp Trek</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Everest Base Camp Trek</a>
-                                        </li>
+                        <div class="uk-container">
+                            <div class="event__slider">
+                                <ul class="uk-slider-items uk-child-width-1-2@m uk-grid">
+                                    <li>
+                                        <div class="event__card flex__card">
+                                            <div class="event__img hover__img">
+                                                <a href="#">
+                                                    <img src="/assets/img/event-img1.png" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="event__overlay flex__overlay">
 
-                                    </ul>
+                                                <div class="event__subheading">
+                                                    25th Dec 2023
+                                                </div>
+
+                                                <h2 class="event__title">
+                                                    merry
+                                                    christmas
+                                                </h2>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="event__card flex__card">
+                                            <div class="event__img hover__img">
+                                                <a href="#">
+                                                    <img src="/assets/img/event-img2.png" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="event__overlay flex__overlay">
+
+                                                <div class="event__subheading">
+                                                    31st Dec 2023
+                                                </div>
+
+                                                <h2 class="event__title">
+                                                    new year’s
+                                                    eve 2024
+                                                </h2>
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="event__card flex__card">
+                                            <div class="event__img hover__img">
+                                                <a href="#">
+                                                    <img src="/assets/img/event-img1.png" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="event__overlay flex__overlay">
+
+                                                <div class="event__subheading">
+                                                    25th Dec 2023
+                                                </div>
+
+                                                <h2 class="event__title">
+                                                    merry
+                                                    christmas
+                                                </h2>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="event__card flex__card">
+                                            <div class="event__img hover__img">
+                                                <a href="#">
+                                                    <img src="/assets/img/event-img2.png" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="event__overlay flex__overlay">
+
+                                                <div class="event__subheading">
+                                                    31st Dec 2023
+                                                </div>
+
+                                                <h2 class="event__title">
+                                                    new year’s
+                                                    eve 2024
+                                                </h2>
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Event section -->
+
+        <section class="bubble__bg">
+            <!-- Reservation section -->
+            <section class="reservation__section section">
+                <div class="uk-container uk-container-small">
+                    <div class="center">
+                        <h2 class="main__heading">
+                            For <br>
+                            Reservation
+                        </h2>
+                    </div>
+
+                    <div class="content__wrapper reservation__container">
+                        <div class="uk-grid uk-child-width-1-2@m uk-flex-middle" data-uk-grid>
+                            <div>
+                                <div class="the__content center">
+                                    <p>
+                                        <span>Charming</span> has a tranquil roof terrace with views overlooking the
+                                        National
+                                        Park, rice fields
+                                        and beyond to the Annapurna range.
+                                    </p>
+                                </div>
+
+                                <div class="btn__center">
+                                    <a href="tel:9851125635" class="btn-txt">Call now</a>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="uk-position-relative">
+                                    <div class="reservation__img">
+                                        <img src="/assets/img/gallery-img1.png" alt="">
+                                    </div>
+                                    <div class="reservation__info">
+                                        <a href="tel:9851125635"><img src="/assets/img/whatsapp.png"
+                                                alt="">9851125635</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <!-- Reservation section -->
+
+
+            <!-- Gallery Section -->
+            <section class="section gallery__section">
+                <div class="uk-position-relative">
+                    <div class="gallery__bg">
+                        <img src="/assets/img/gallery-glass.png" alt="">
+                    </div>
+                    <div class="uk-container uk-position-relative">
+                        <div class="flex-between pb">
+                            <h2 class="main__heading">
+                                Photo Gallery
+                            </h2>
+
+                            <div class="flex-row">
+                                <div class="container-small">
+                                    <div class="the__content uk-text-right">
+                                        <p>
+                                            <span>
+                                                Charming
+                                            </span> has a tranquil roof terrace with views overlooking the National
+                                            Park, rice
+                                            fields and beyond to the Annapurna range.
+                                        </p>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn-txt">Instagram</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-container uk-container-large">
+                    <div class="gallery__container content__wrapper">
+                        <div class="uk-grid uk-grid-medium uk-child-width-1-4@l uk-child-width-1-3@m uk-child-width-1-2@s"
+                            data-uk-grid data-uk-scrollspy="target: > div; cls: uk-animation-slide-bottom; delay: 300">
+                            <div>
+                                <div class="hover__gallery">
+                                    <div data-fancybox="trip__gallery" data-src="/assets/img/gallery-img1.png">
+                                        <img alt="" loading="lazy" src="/assets/img/gallery-img1.png">
+                                        <div class="hover__gallery__content">
+                                            <p>Open<i class="fa-solid fa-arrow-up-right-from-square"></i></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="hover__gallery">
+                                    <div data-fancybox="trip__gallery" data-src="/assets/img/gallery-img2.png">
+                                        <img alt="" loading="lazy" src="/assets/img/gallery-img2.png">
+                                        <div class="hover__gallery__content">
+                                            <p>Open<i class="fa-solid fa-arrow-up-right-from-square"></i></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="hover__gallery">
+                                    <div data-fancybox="trip__gallery" data-src="/assets/img/gallery-img3.png">
+                                        <img alt="" loading="lazy" src="/assets/img/gallery-img3.png">
+                                        <div class="hover__gallery__content">
+                                            <p>Open<i class="fa-solid fa-arrow-up-right-from-square"></i></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="hover__gallery">
+                                    <div data-fancybox="trip__gallery" data-src="/assets/img/gallery-img4.png">
+                                        <img alt="" loading="lazy" src="/assets/img/gallery-img4.png">
+                                        <div class="hover__gallery__content">
+                                            <p>Open<i class="fa-solid fa-arrow-up-right-from-square"></i></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="hover__gallery">
+                                    <div data-fancybox="trip__gallery" data-src="/assets/img/gallery-img5.png">
+                                        <img alt="" loading="lazy" src="/assets/img/gallery-img5.png">
+                                        <div class="hover__gallery__content">
+                                            <p>Open<i class="fa-solid fa-arrow-up-right-from-square"></i></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="hover__gallery">
+                                    <div data-fancybox="trip__gallery" data-src="/assets/img/gallery-img6.png">
+                                        <img alt="" loading="lazy" src="/assets/img/gallery-img6.png">
+                                        <div class="hover__gallery__content">
+                                            <p>Open<i class="fa-solid fa-arrow-up-right-from-square"></i></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="hover__gallery">
+                                    <div data-fancybox="trip__gallery" data-src="/assets/img/gallery-img7.png">
+                                        <img alt="" loading="lazy" src="/assets/img/gallery-img7.png">
+                                        <div class="hover__gallery__content">
+                                            <p>Open<i class="fa-solid fa-arrow-up-right-from-square"></i></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="hover__gallery">
+                                    <div data-fancybox="trip__gallery" data-src="/assets/img/gallery-img8.png">
+                                        <img alt="" loading="lazy" src="/assets/img/gallery-img8.png">
+                                        <div class="hover__gallery__content">
+                                            <p>Open<i class="fa-solid fa-arrow-up-right-from-square"></i></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+            <!-- Gallery Section -->
+
+
+            <!-- Blog section -->
+            <section class="section blog__section">
+                <div class="uk-container uk-position-relative">
+                    <div class="flex-between pb">
+                        <h2 class="main__heading">
+                            Blogs
+                        </h2>
+
+                        <div class="flex-row">
+                            <div class="container-small">
+                                <div class="the__content uk-text-right">
+                                    <p>
+                                        Stay up-to-date with our latest
+                                        happenings, news and blog updates.
+                                    </p>
+                                </div>
+                            </div>
+                            <a href="#" class="btn-txt">View all</a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-large">
+                    <div class="blog__container content__wrapper">
+                        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" data-uk-slider>
+
+                            <div class="arrow__container">
+                                <div class="prevarrow myarrow">
+                                    <a href data-uk-slider-item="previous">
+                                        <img src="/assets/img/arrow.png" alt="arrow" />
+                                    </a>
+                                </div>
+                                <div class="nextarrow myarrow">
+                                    <a href data-uk-slider-item="next">
+                                        <img src="/assets/img/arrow.png" alt="arrow" />
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="uk-container">
+                                <div class="blog__slider uk-overflow-hidden">
+                                    <ul class="uk-slider-items uk-child-width-1-2@m uk-grid">
+                                        <li>
+                                            <div class="blog__wrapper">
+                                                <div class="blog__img hover__img">
+                                                    <a href="#">
+                                                        <img src="/assets/img/blog-img1.png" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="blog__content">
+
+                                                    <div class="blog__date">
+                                                        13 Dec 2023
+                                                    </div>
+
+                                                    <div class="blog__title link__title">
+                                                        <a href="#">
+                                                            We have won the competition to transform Prague's central
+                                                            station
+                                                        </a>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="blog__wrapper">
+                                                <div class="blog__img hover__img">
+                                                    <a href="#">
+                                                        <img src="/assets/img/blog-img2.png" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="blog__content">
+
+                                                    <div class="blog__date">
+                                                        13 Dec 2023
+                                                    </div>
+
+                                                    <div class="blog__title link__title">
+                                                        <a href="#">
+                                                            Construction Commences on Ambitious Enterprise Research
+                                                            Campus
+                                                        </a>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="blog__wrapper">
+                                                <div class="blog__img hover__img">
+                                                    <a href="#">
+                                                        <img src="/assets/img/blog-img1.png" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="blog__content">
+
+                                                    <div class="blog__date">
+                                                        13 Dec 2023
+                                                    </div>
+
+                                                    <div class="blog__title link__title">
+                                                        <a href="#">
+                                                            We have won the competition to transform Prague's central
+                                                            station
+                                                        </a>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="blog__wrapper">
+                                                <div class="blog__img hover__img">
+                                                    <a href="#">
+                                                        <img src="/assets/img/blog-img2.png" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="blog__content">
+
+                                                    <div class="blog__date">
+                                                        13 Dec 2023
+                                                    </div>
+
+                                                    <div class="blog__title link__title">
+                                                        <a href="#">
+                                                            Construction Commences on Ambitious Enterprise Research
+                                                            Campus
+                                                        </a>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Blog section -->
+        </section>
+
+
+
+        <!-- Map section -->
+        <section class="section-t map__section">
             <div class="uk-container">
-                <div class="bottom__footer">
-                    <span>
-                        copright
-                    </span>
+                <div class="center">
+                    <h2 class="main__heading">
+                        location map
+                    </h2>
                 </div>
             </div>
-        </div>
-    </footer>
+            <div class="mt-20">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7066.125071692563!2d85.32901079578754!3d27.684462005401365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19bfd910ffe9%3A0x66f431dda92f7629!2sShankhamul%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1695633816764!5m2!1sen!2snp"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+        <!-- Map section -->
+    </main><!-- #main -->
 
-
-    <!-- UIkit JS -->
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.23/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.23/dist/js/uikit-icons.min.js"></script>
+    <script src="./assets/js/uikit-icons.min.js"></script>
+    <script src="./assets/js/uikit.min.js"></script>
+    <script src="./assets/js/jquery-3.6.3.js"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
