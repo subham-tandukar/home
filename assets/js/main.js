@@ -1,55 +1,121 @@
 var $ = jQuery;
 
 document.addEventListener("DOMContentLoaded", function () {
-  $(".hamburger-toggle").on("click", function (e) {
-    $(".fullscreen__menu").addClass("show__menu").removeClass("hide__menu");
-    $("html").addClass("toggleOverflow");
+ 
+  var mainslider = new Swiper(".mySwiper", {
+    pagination: {
+      el: ".swiper-pagination",
+      type: "progressbar",
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
   });
-  $(".close__menu").on("click", function (e) {
-    $(".fullscreen__menu").addClass("hide__menu").removeClass("show__menu");
-    $("html").removeClass("toggleOverflow");
+  var counter = $(".fraction");
+  var currentCount = $(
+    '<div class="count">01/' +
+      (mainslider.slides.length < 10
+        ? "0" + mainslider.slides.length
+        : mainslider.slides.length) +
+      "<div/>"
+  );
+  counter.append(currentCount);
+
+  mainslider.on("transitionStart", function () {
+    var index = this.activeIndex + 1;
+    var formattedIndex = ("0" + index).slice(-2); // Ensure double-digit format
+    var totalSlides = mainslider.slides.length;
+    var totalSlidesFormatted =
+      totalSlides < 10 ? "0" + totalSlides : totalSlides;
+    var currentCount = $(
+      '<div class="count">' +
+        formattedIndex +
+        "/" +
+        totalSlidesFormatted +
+        "<div/>"
+    );
+    counter.html(currentCount);
   });
+
+  $(window).scroll(function () {
+    var sticky = $(".site-header"),
+      scroll = $(window).scrollTop();
+
+    if (scroll >= 300) {
+      sticky.addClass("fixed animated");
+    } else {
+      sticky.removeClass("fixed animated");
+    }
+  });
+
+  $(".testimonial__card .card__content").readmore({
+    speed: 220,
+    lessLink: '<a href="#">Read Less</a>',
+  });
+
+  $(".ham-menu").on("click", function (e) {
+    e.preventDefault();
+    $(".offcanvas").addClass("show");
+    $(".offcanvas__bar").addClass("showbar");
+  });
+
+  $(".offcanvas__bar").on("click", function (e) {
+    var container = $(".offcanvas__sidebar");
+
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+      $(".offcanvas").removeClass("show");
+      $(".offcanvas__bar").removeClass("showbar");
+    }
+  });
+
+  $(
+    "#primary-menu1 > li.menu-item-has-children, #primary-menu1 > li.menu-item-has-children ul li.menu-item-has-children"
+  ).append('<span><i class="fa-solid fa-chevron-right"></i></span>');
+  $(document).on(
+    "click",
+    "#primary-menu1 > li.menu-item-has-children span",
+    function (event) {
+      $(this).parent("li").children("ul").slideToggle();
+      $(this).parent("li").children("ul").toggleClass("show");
+      showActive();
+    }
+  );
 });
+showActive = () => {
+  $(".sub-menu").each(function () {
+    if ($(this).hasClass("show")) {
+      $(this).parent("li").children("a").addClass("show-active");
+    } else {
+      $(this).parent("li").children("a").removeClass("show-active");
+    }
+  });
+};
 
 let options = {
   threshold: 0.5,
 };
-const aboutBg = document.querySelector(".about__bg");
-let aboutobserver = new IntersectionObserver((entries) => {
-  if (entries[0].isIntersecting === true) {
-    aboutBg.classList.add("visible");
-  }
-}, options);
-aboutBg && aboutobserver.observe(aboutBg);
 
-const whyUsBg = document.querySelector(".why__us__bg");
-let whyUsobserver = new IntersectionObserver((entries) => {
+const serviceBg = document.querySelector(".service__section");
+let serviceobserver = new IntersectionObserver((entries) => {
   if (entries[0].isIntersecting === true) {
-    whyUsBg.classList.add("visible");
+    serviceBg.classList.add("visible");
   }
 }, options);
-whyUsBg && whyUsobserver.observe(whyUsBg);
+serviceBg && serviceobserver.observe(serviceBg);
 
-const eventBg = document.querySelector(".event__bg");
-let eventobserver = new IntersectionObserver((entries) => {
+const whyBg = document.querySelector(".why__us");
+let whyobserver = new IntersectionObserver((entries) => {
   if (entries[0].isIntersecting === true) {
-    eventBg.classList.add("visible");
+    whyBg.classList.add("visible");
   }
 }, options);
-eventBg && eventobserver.observe(eventBg);
+whyBg && whyobserver.observe(whyBg);
 
-const reservationBg = document.querySelector(".reservation__img");
-let reservationobserver = new IntersectionObserver((entries) => {
+const footerBg = document.querySelector(".site-footer");
+let footerobserver = new IntersectionObserver((entries) => {
   if (entries[0].isIntersecting === true) {
-    reservationBg.classList.add("visible");
+    footerBg.classList.add("visible");
   }
 }, options);
-reservationBg && reservationobserver.observe(reservationBg);
-
-const galleryBg = document.querySelector(".gallery__bg");
-let galleryobserver = new IntersectionObserver((entries) => {
-  if (entries[0].isIntersecting === true) {
-    galleryBg.classList.add("visible");
-  }
-}, options);
-galleryBg && galleryobserver.observe(galleryBg);
+footerBg && footerobserver.observe(footerBg);
