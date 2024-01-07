@@ -1,72 +1,194 @@
 var $ = jQuery;
 
+
 document.addEventListener("DOMContentLoaded", function () {
- 
-  var mainslider = new Swiper(".mySwiper", {
-    pagination: {
-      el: ".swiper-pagination",
-      type: "progressbar",
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+  $(".banner__section .owl-carousel").owlCarousel({
+    items: 1,
+    loop: true,
+    dots: false,
+    animateOut: "slideOutDown",
+    animateIn: "zoomIn",
+    smartSpeed: 2000,
+    nav: true,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
+    navText: [
+      "<div class='prev-slide custom__nav'><span></span></div>",
+      "<div class='next-slide custom__nav'><span></span></div>",
+    ],
+    responsive: {
+      0: {
+        items: 1,
+        mouseDrag: false,
+      },
+      640: {
+        items: 1,
+        mouseDrag: false,
+      },
     },
   });
-  var counter = $(".fraction");
-  var currentCount = $(
-    '<div class="count">01/' +
-      (mainslider.slides.length < 10
-        ? "0" + mainslider.slides.length
-        : mainslider.slides.length) +
-      "<div/>"
-  );
-  counter.append(currentCount);
 
-  mainslider.on("transitionStart", function () {
-    var index = this.activeIndex + 1;
-    var formattedIndex = ("0" + index).slice(-2); // Ensure double-digit format
-    var totalSlides = mainslider.slides.length;
-    var totalSlidesFormatted =
-      totalSlides < 10 ? "0" + totalSlides : totalSlides;
-    var currentCount = $(
-      '<div class="count">' +
-        formattedIndex +
-        "/" +
-        totalSlidesFormatted +
-        "<div/>"
-    );
-    counter.html(currentCount);
+  // For testimonial carousel
+  var testiOwl = $(".testimonial__carousel .owl-carousel");
+  testiOwl.owlCarousel({
+    items: 1,
+    margin: 20,
+    loop: false,
+    dots: false,
+    autoHeight: true,
+    nav: false,
+    mouseDrag: false,
   });
 
+  $(".testi-arrow .nextarrow").click(function () {
+    testiOwl.trigger("next.owl.carousel", [1500]);
+    toggleTestiArrows();
+  });
+
+  $(".testi-arrow .prevarrow").click(function () {
+    testiOwl.trigger("prev.owl.carousel", [1500]);
+    toggleTestiArrows();
+  });
+
+  // Function to toggle arrows based on the current slide position
+  function toggleTestiArrows() {
+    var currentIndex = testiOwl.find(".owl-item.active").index();
+    var totalItems = testiOwl.find(".owl-item").length;
+
+    if (currentIndex === 0) {
+      $(".testi-arrow .prevarrow").addClass("disabled");
+    } else {
+      $(".testi-arrow .prevarrow").removeClass("disabled");
+    }
+
+    if (currentIndex === totalItems - 1) {
+      $(".testi-arrow .nextarrow").addClass("disabled");
+    } else {
+      $(".testi-arrow .nextarrow").removeClass("disabled");
+    }
+
+    if (totalItems === 1) {
+      $(".testi-arrow .nextarrow").addClass("uk-hidden");
+      $(".testi-arrow .prevarrow").addClass("uk-hidden");
+    } else {
+      $(".testi-arrow .nextarrow").removeClass("uk-hidden");
+      $(".testi-arrow .prevarrow").removeClass("uk-hidden");
+    }
+  }
+
+  // Initial toggle based on initial slide position
+  testiOwl.on("changed.owl.carousel", function () {
+    toggleTestiArrows();
+  });
+
+  toggleTestiArrows();
+
+  // For exp carousel
+  var expOwl = $(".exp__carousel .owl-carousel");
+  expOwl.owlCarousel({
+    center: true,
+    items: 1.5,
+    loop: true,
+    margin: 30,
+    dots: false,
+    autoHeight: true,
+    nav: false,
+    responsive: {
+      0: {
+        items: 1.25,
+        margin: 20,
+      },
+      640: {
+        items: 1.5,
+        margin: 30,
+      },
+    }
+  });
+
+  $(".exp-arrow .nextarrow").click(function () {
+    expOwl.trigger("next.owl.carousel", [1500]);
+  });
+
+  $(".exp-arrow .prevarrow").click(function () {
+    expOwl.trigger("prev.owl.carousel", [1500]);
+  });
+
+  // For current__grp__carousel
+  var currentGrpOwl = $(".current__grp__carousel .owl-carousel");
+  currentGrpOwl.owlCarousel({
+  
+    loop: true,
+    dots: false,
+    nav: false,
+    autoplay:true,
+    autoplayTimeout: 4000,
+    autoplaySpeed: 4000,
+    autoplayHoverPause: true,
+    responsive: {
+      0: {
+        items: 2,
+        margin: 30,
+      },
+      640: {
+        items: 2,
+        margin: 40,
+      },
+      960: {
+        items: 3,
+        margin: 50,
+      },
+      1200: {
+        items: 4,
+        margin: 60,
+      },
+      1600: {
+        items: 5,
+        margin: 80,
+      },
+    },
+  });
+
+  $(".currentGrp-arrow .nextarrow").click(function () {
+    currentGrpOwl.trigger("next.owl.carousel", [1500]);
+  });
+
+  $(".currentGrp-arrow .prevarrow").click(function () {
+    currentGrpOwl.trigger("prev.owl.carousel", [1500]);
+  });
+
+  //
   $(window).scroll(function () {
     var sticky = $(".site-header"),
       scroll = $(window).scrollTop();
 
     if (scroll >= 300) {
-      sticky.addClass("fixed animated");
+      sticky.addClass("fixed");
     } else {
-      sticky.removeClass("fixed animated");
+      sticky.removeClass("fixed");
     }
   });
 
-  $(".testimonial__card .card__content").readmore({
-    speed: 220,
-    lessLink: '<a href="#">Read Less</a>',
+  // for destionation tab
+  $(".destination__menu > ul > li").click(function () {
+    var tab_id = $(this).attr("data-tab").toLowerCase();
+    $(".destination__menu > ul > li").removeClass("current");
+    $(".destination__content").removeClass("current");
+    $(this).addClass("current");
+    $("#" + tab_id)
+      .addClass("current")
+      .hide()
+      .fadeIn(900);
   });
 
-  $(".ham-menu").on("click", function (e) {
-    e.preventDefault();
-    $(".offcanvas").addClass("show");
-    $(".offcanvas__bar").addClass("showbar");
+  // for fullscreen menu
+  $(".hamburger-toggle").on("click", function (e) {
+    $(".fullscreen__menu").addClass("show__menu").removeClass("hide__menu");
+    $("html").addClass("toggleOverflow");
   });
-
-  $(".offcanvas__bar").on("click", function (e) {
-    var container = $(".offcanvas__sidebar");
-
-    if (!container.is(e.target) && container.has(e.target).length === 0) {
-      $(".offcanvas").removeClass("show");
-      $(".offcanvas__bar").removeClass("showbar");
-    }
+  $(".close__menu").on("click", function (e) {
+    $(".fullscreen__menu").addClass("hide__menu").removeClass("show__menu");
+    $("html").removeClass("toggleOverflow");
   });
 
   $(
@@ -95,22 +217,21 @@ showActive = () => {
 let options = {
   threshold: 0.5,
 };
-
-const serviceBg = document.querySelector(".service__section");
-let serviceobserver = new IntersectionObserver((entries) => {
+const aboutBg = document.querySelector(".about__bg");
+let aboutobserver = new IntersectionObserver((entries) => {
   if (entries[0].isIntersecting === true) {
-    serviceBg.classList.add("visible");
+    aboutBg.classList.add("visible");
   }
 }, options);
-serviceBg && serviceobserver.observe(serviceBg);
+aboutBg && aboutobserver.observe(aboutBg);
 
-const whyBg = document.querySelector(".why__us");
-let whyobserver = new IntersectionObserver((entries) => {
+const testimonialBg = document.querySelector(".testimonial__container");
+let testimonialobserver = new IntersectionObserver((entries) => {
   if (entries[0].isIntersecting === true) {
-    whyBg.classList.add("visible");
+    testimonialBg.classList.add("visible");
   }
 }, options);
-whyBg && whyobserver.observe(whyBg);
+testimonialBg && testimonialobserver.observe(testimonialBg);
 
 const footerBg = document.querySelector(".site-footer");
 let footerobserver = new IntersectionObserver((entries) => {
