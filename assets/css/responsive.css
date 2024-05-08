@@ -1,284 +1,232 @@
-@media (max-width: 1500px) {
-  .fullscreen__menu.hide__menu {
-    -webkit-clip-path: circle(0% at 5% 100px);
-    clip-path: circle(0% at 5% 100px);
+@media (max-width: 1599px) {
+  .student__life .hover__img {
+    margin-bottom: 20px;
   }
-
-  .footer__title {
-    font-size: 40px;
-    line-height: 25px;
-    letter-spacing: -0.44px;
-  }
-  .footer__title span {
-    font-size: 25px;
-  }
-  .main__heading {
-    font-size: 45px;
-    line-height: 55px;
-  }
-  .main__heading span {
-    font-size: 27px;
-  }
-  .blog__container .hover__img img {
-    height: 400px;
-  }
-  .link__title a {
-    font-size: 26px;
-    line-height: 36px;
-  }
-  .link__title.secondary a {
-    font-size: 22px;
-    line-height: 28px;
-  }
-  .hover__card .hover__card__info > div:last-child span {
-    font-size: 30px;
-    margin-top: -7px;
-  }
-  .hover__card .hover__card__info > div:first-child span {
-    font-size: 18px;
-    letter-spacing: -0.1px;
-    margin-top: 3px;
-  }
-  .current__group__container,
-  .current__grp__wrapper {
-    gap: 80px;
-  }
-  .current__grp__wrapper .uk-grid-large > * {
-    padding-left: 40px;
-  }
-  .current__grp__wrapper .uk-grid-large {
-    margin-left: -40px;
-  }
-  .current__group__container .main__heading span {
-    font-size: 26px;
-  }
-  .exp__carousel .owl-item img {
-    height: 550px;
-  }
-  .testimonial__container::before,
-  .testimonial__container::after {
-    width: 300px;
-    height: 300px;
-  }
-  .banner__text {
-    bottom: 50px;
-  }
-  .banner__text .banner__heading {
-    font-size: 55px;
-    line-height: 70px;
+  .student__life .hover__img img {
+    height: 500px;
   }
 }
-@media (max-width: 1199px) {
-  .newsletter__txt {
-    max-width: 100%;
+@media (max-width: 1440px) {
+  .site-header .custom-logo {
+    width: 60px;
   }
-  .blog__date {
-    margin: 15px 0 5px;
-  }
-  .quote__title {
-    font-size: 65px;
-    line-height: 70px;
-  }
-  .quote__meta,
-  .quote__author {
-    font-size: 26px;
-    line-height: 36px;
-  }
-  .current__group__container,
-  .current__grp__wrapper {
-    gap: 40px;
-  }
-  .current__group__container .main__heading span {
-    font-size: 20px;
-  }
-  .current__group__container .main__heading {
-    font-size: 35px;
-  }
-  .link__title.small a {
-    font-size: 18px;
+  .logo__text {
+    font-size: 16px;
     line-height: 18px;
   }
-  .current__grp__wrapper .arrow__container .myarrow img {
-    width: 30px;
+  .logo__text span {
+    font-size: 14px;
+    line-height: 20px;
   }
-  .exp__wrapper {
-    margin-top: 20px;
+  .main-navigation > div > ul > li > a {
+    font-size: 15px;
+  }
+  .social__icons a i {
+    font-size: 18px;
+  }
+  .top__header__txt span,
+  .top__header__txt a {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .top__header .flex-row.gap-40 {
+    gap: 20px;
+  }
+  .activities__carousel .uk-slider-container {
+    margin: 0 40px;
+  }
+  .school__info .wrapper img {
+    height: 40px;
+  }
+  .school__info__txt {
+    font-size: 16px;
+  }
+  .school__info__txt span {
+    font-size: 22px;
+  }
+  .border-left-title a {
+    font-size: 20px;
+    line-height: 25px;
+  }
+}
+
+@media (max-width: 1199px) {
+  /* .custom__row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
   }
-  .exp__carousel .owl-item img {
-    height: 450px;
+  .custom__col__side {
+    margin-top: 40px;
+  } */
+  .top__header__txt small {
+    display: none;
   }
-  .link__title a {
-    font-size: 24px;
-    line-height: 34px;
+  .banner__heading {
+    font-size: 40px;
+    line-height: 50px;
   }
-  .the__content p,
-  .entry-content p,
-  .the__content li {
+  .banner__meta,
+  .banner__subheading {
     font-size: 18px;
-    line-height: 34px;
+    line-height: 22px;
   }
-  .testimonial__container::before,
-  .testimonial__container::after {
-    width: 200px;
-    height: 200px;
+  .activities__carousel .uk-slider-container {
+    margin: 0 0;
   }
-  .sustainable__container {
-    margin-top: 250px;
+  .custom__col__main {
+    padding-left: 40px;
   }
-  .about__bg {
-    top: 0;
-    -webkit-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
+  .activities__wrapper .hover__img img {
+    height: 330px;
   }
-  .banner__text .banner__heading {
-    font-size: 45px;
-    line-height: 60px;
+  .custom__row {
+    flex-direction: column;
   }
-  .site-header .custom-logo {
-    width: 110px;
+  .school__info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    height: max-content;
+  }
+  .school__info .wrapper:not(:last-child) {
+    margin-bottom: 0;
+  }
+  .custom__col__side {
+    flex: 0;
+  }
+  .custom__col__main {
+    padding-left: 0;
+    margin-top: 40px;
+  }
+  .quote__img img {
+    width: 60px;
+  }
+  .main__heading {
+    font-size: 35px;
+    line-height: 45px;
+  }
+  .principal__info h3 {
+    font-size: 20px;
+    line-height: 25px;
+  }
+  .principal__info p {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .student__life .hover__img img {
+    height: 400px;
   }
 }
 
 @media (max-width: 959px) {
-  .sticky__top {
-    position: static;
+  .top__header .flex-row.gap-40 {
+    gap: 10px;
   }
-  .container-large,
-  .small__content {
-    padding-left: 30px;
-    padding-right: 30px;
+  .school__info {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 40px;
   }
-
-  .light__bg {
-    padding: 40px 0;
-  }
-  .btn__center {
-    margin-top: 30px;
-  }
-  .container-small {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  .section-t {
-    padding-top: 70px;
-  }
-  .section-b {
-    padding-bottom: 70px;
-  }
-  .section {
-    padding: 70px 0;
-  }
-  .sustainable__travel {
-    padding: 70px 0;
-  }
-
-  .close__container {
-    width: 30px;
-    height: 30px;
-  }
-  .rightleft,
-  .leftright {
-    width: 30px;
-  }
-  .close {
-    margin-left: -5px;
-  }
-
-  #primary-menu1 li a {
-    font-size: 45px;
-  }
-  #primary-menu1 > li.menu-item-has-children ul li a {
-    font-size: 35px;
-  }
-  .offcanvas__content {
-    padding: 20px;
-  }
-  .close__menu {
-    top: 75px;
-    left: 40px;
-  }
-  .fullscreen__menu.hide__menu {
-    -webkit-clip-path: circle(0% at 7% 90px);
-    clip-path: circle(0% at 7% 90px);
-  }
-
-  .bottom__footer__wrapper {
-    justify-content: center;
-    flex-direction: column;
-  }
-  .footer__title {
-    font-size: 35px;
-  }
-  .footer__title span {
-    font-size: 23px;
-    line-height: 40px;
+  .who__img {
+    margin: 30px 0;
   }
   .main__heading {
-    font-size: 40px;
-    line-height: 50px;
-    letter-spacing: -0.65px;
+    font-size: 30px;
+    line-height: 40px;
   }
-  .main__heading span {
-    font-size: 22px;
-  }
-  .quote__title {
-    font-size: 50px;
-    line-height: 55px;
-    max-width: 700px;
-    margin: 50px auto 0;
-  }
-  .quote__meta,
-  .quote__author {
-    font-size: 20px;
-    line-height: 30px;
-  }
-  .quote__container img {
-    width: 100px;
-  }
-  .quote__author {
-    margin-top: 100px;
-  }
-  .current__grp__wrapper .uk-grid-large > * {
-    padding-left: 20px;
-  }
-  .current__grp__wrapper .uk-grid-large {
-    margin-left: -20px;
-  }
-  .btn {
+  .bordered__title {
     font-size: 16px;
+    line-height: 20px;
   }
-  .exp__carousel .owl-item img {
-    height: 350px;
+  .principal__img__wrapper {
+    width: 75%;
+    margin: 30px 0 60px 0;
   }
-  .testimonial__carousel {
-    margin-top: 50px;
+  .principal__message,
+  .academic__achievement,
+  .student__life {
+    padding-bottom: 0;
   }
-  .sustainable__container {
-    margin-top: 200px;
+  .academic__achievement .wrapper .icon img {
+    width: 40px;
+    height: 40px;
   }
-  .about__overlay {
-    min-height: auto;
-  }
-  .banner__text .banner__heading {
-    font-size: 35px;
-    line-height: 50px;
-    letter-spacing: -1.25px;
-  }
-  .banner__text {
-    bottom: 30px;
-  }
-  .site-header .custom-logo {
+  .academic__achievement .wrapper .icon {
     width: 80px;
+    height: 80px;
+  }
+  .student__life .hover__img {
+    width: fit-content;
+  }
+  .student__life .hover__img img {
+    width: auto;
+  }
+
+  .student__life
+    .content__wrapper
+    > .uk-grid
+    > div:nth-of-type(2n)
+    .uk-grid
+    > div:last-child {
+    background: var(--secondary);
+  }
+  .student__life
+    .content__wrapper
+    > .uk-grid
+    > div:nth-of-type(4n + 3)
+    .uk-grid
+    > div:last-child {
+    background: var(--primary);
+  }
+  .student__life
+    .content__wrapper
+    > .uk-grid
+    > div:nth-of-type(2n)
+    .uk-grid
+    > div:last-child
+    .border-left-title
+    a {
+    text-align: left;
+    border-left: 3px solid #000;
+    border-right: none;
+    padding-left: 15px;
+    padding-right: 0;
+    color: #000;
+  }
+  .student__life
+    .content__wrapper
+    > .uk-grid
+    > div:nth-of-type(2n)
+    .uk-grid
+    > div:last-child
+    .the__content
+    p {
+    text-align: left;
+    color: #000;
+  }
+
+  .student__life
+    .content__wrapper
+    > .uk-grid
+    > div:nth-of-type(4n + 3)
+    .uk-grid
+    > div:last-child
+    .border-left-title
+    a,
+  .student__life
+    .content__wrapper
+    > .uk-grid
+    > div:nth-of-type(4n + 3)
+    .uk-grid
+    > div:last-child
+    .the__content
+    p {
+    color: #fff;
+    border-color: #fff;
   }
 }
 
-@media (max-width: 767px) {
-  .exp__carousel .owl-item img {
-    height: 300px;
-  }
-}
 @media (max-width: 639px) {
   .section-t {
     padding-top: 40px;
@@ -300,56 +248,42 @@
     margin-top: 20px;
   }
   .link__title a {
-    font-size: 22px;
-    line-height: 32px;
-    letter-spacing: -0.08px;
+    font-size: 18px;
+    line-height: 24px;
   }
-
+  .link__title.link__title-large a {
+    font-size: 18px;
+    line-height: 20px;
+  }
   .the__content p,
   .entry-content p,
   .the__content li {
     font-size: 16px;
     line-height: 26px;
   }
+  .the__content p,
+  .entry-content p {
+    margin-top: 10px;
+  }
   .the__content h1 {
     font-size: 26px;
-  }
-  .the__content h2 {
-    font-size: 20px;
-  }
-  .main__heading {
-    font-size: 30px;
-    line-height: 40px;
-    letter-spacing: -0.15px;
-  }
-  .main__heading span {
-    font-size: 18px;
-  }
-  .sub__heading {
-    font-size: 25px;
-    line-height: 27px;
-  }
-  .entry-title {
     margin-bottom: 10px;
   }
-  .sub__title p {
-    font-size: 14px;
-    line-height: 24px;
-    margin-top: 15px;
+  .the__content h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
   }
-  .btn {
-    font-size: 14px;
-    padding: 10px 20px;
+  .the__content h3,
+  .the__content h4,
+  .the__content h5 {
+    margin-bottom: 10px;
+    font-size: 20px;
   }
+
   .container-large,
   .small__content {
     padding-left: 15px;
     padding-right: 15px;
-  }
-
-  .single__heading {
-    font-size: 25px;
-    line-height: 35px;
   }
 
   .error-404 {
@@ -393,13 +327,6 @@
   .the__title.small {
     font-size: 16px;
   }
-  .txt-overlay {
-    padding: 20px;
-    padding-bottom: 15px;
-  }
-  .overlay__card .hover__img img {
-    height: auto;
-  }
 
   /* popup form */
   .uk-modal-body {
@@ -414,340 +341,174 @@
     font-size: 18px;
   }
 
-  input:not([type="submit"]),
-  select,
-  textarea {
-    padding: 12px 14px;
-  }
-  input[type="submit"] {
-    padding: 12px 20px;
-    font-size: 14px;
-  }
-  ::-webkit-input-placeholder {
-    font-size: 16px;
-  }
-  ::-moz-placeholder {
-    font-size: 16px;
-  }
-  :-ms-input-placeholder {
-    font-size: 16px;
-  }
-  ::-ms-input-placeholder {
-    font-size: 16px;
-  }
-  ::placeholder {
-    font-size: 16px;
-  }
-  .uk-modal-close-default {
-    top: 2px;
-    right: 2px;
-    padding: 5px;
-  }
   /* popup form */
 
-  .btn__center {
-    margin-top: 30px;
-  }
-
-  /* .banner__section,
-  .banner__slider img,
-  .banner__slider {
-    height: 600px;
-  } */
-
-  .page__banner,
-  .page__banner .banner__slider,
-  .page__banner .banner__slider img {
-    height: 400px;
-  }
-
-  /*  */
-  .pb {
-    padding-bottom: 10px;
-  }
-  .hamburger-menu {
-    width: 34px;
-    height: 21px;
-  }
-
-  .offcanvas__logo img {
-    width: 120px;
-  }
-  .offcanvas__contact .contact__details {
-    margin-top: 30px;
-  }
-  .offcanvas__contact .social__icons {
-    padding-top: 15px;
-  }
-  .offcanvas__content {
-    padding: 20px 10px;
-  }
-  .close__menu {
-    top: 45px;
-    left: 25px;
-  }
-  .fullscreen__menu.hide__menu {
-    -webkit-clip-path: circle(0% at 7% 70px);
-    clip-path: circle(0% at 7% 70px);
-  }
-  .offcanvas__wrapper {
-    margin-top: 10px;
-  }
-
-  #primary-menu1 li a {
-    font-size: 40px;
-  }
-  #primary-menu1 > li.menu-item-has-children ul li a {
-    font-size: 30px;
-  }
-
-  .bottom__footer * {
-    font-size: 14px;
-    line-height: 14px;
-  }
-  .bottom__footer {
-    padding: 15px 0;
-    margin-top: 40px;
-  }
-
-  .footer__title {
-    margin-bottom: 15px;
-    font-size: 30px;
-    line-height: 20px;
-    letter-spacing: 0.56px;
-  }
-  .footer__title span {
-    font-size: 20px;
-    line-height: 35px;
-  }
-  .site-footer {
-    padding-top: 40px;
-  }
-  .footer__info p,
-  .footer__info p > a {
-    font-size: 15px;
-  }
-  .footer__social {
-    margin-top: 20px;
-  }
-  .footer__location {
-    max-width: 100%;
-  }
-  .newsletter__form .form__wrapper form > div {
-    row-gap: 10px;
-    flex-direction: column;
-  }
-  .newsletter__txt {
-    font-size: 18px;
-    line-height: 26px;
-  }
-  .newsletter__section {
-    padding-top: 30px;
-  }
-  .newsletter__container .uk-grid-margin {
-    margin-top: 20px;
-  }
-  .blog__container .hover__img img {
-    height: 300px;
-  }
-  .link__title.secondary a {
-    font-size: 20px;
-    line-height: 24px;
-  }
-  .blog__date {
-    margin: 10px 0 2px;
-    font-size: 14px;
-  }
-
-  /*  */
-  .hover__card__img img {
-    height: 400px;
-    width: 100%;
-  }
-  .hover__card .hover__card__content {
-    bottom: -104px;
-    padding: 15px;
-    padding-top: 15px;
-  }
-  .hover__card .hover__card__info {
-    padding: 10px 0;
-    margin-top: 10px;
-  }
-  .hover__card .hover__card__info > div:last-child {
-    display: flex;
-    flex-direction: column;
-  }
-  .hover__card .hover__card__info > div:last-child small {
-    display: none;
-  }
-  .hover__card .hover__card__info > div:last-child strong {
-    text-align: right;
-  }
-  .hover__card .hover__card__info > div:last-child span {
-    font-size: 20px;
-    margin-top: -5px;
-    font-weight: 700;
-  }
-  .hover__card .hover__card__content .lower__content .para {
-    margin-top: 10px;
-  }
-  .hover__card .hover__card__content .lower__content .para p {
-    font-size: 16px;
-    line-height: 26px;
-  }
-
-  /*  */
-
-  .quote__container img {
-    width: 60px;
-  }
-  .quote__meta,
-  .quote__author {
-    font-size: 18px;
-    line-height: 28px;
-  }
-  .quote__meta {
-    margin-top: 10px;
-  }
-  .quote__section {
-    padding: 60px 0;
-    padding-bottom: 50px;
-  }
-  .quote__title {
-    font-size: 30px;
-    line-height: 35px;
-  }
-  .quote__title {
-    margin: 40px auto 0;
-    max-width: 500px;
-  }
-  .quote__author {
-    margin-top: 70px;
-  }
-  .current__group__container,
-  .current__grp__wrapper {
-    flex-direction: column;
-    row-gap: 25px;
-    align-items: flex-start;
-  }
-  .current__group__container .main__heading {
-    width: 100%;
-    text-align: center;
-  }
-  .current__grp__carousel,
-  .currentGrp-arrow {
-    width: 100%;
-  }
-  .current__grp__wrapper .link__title.small,
-  .date {
-    text-align: center;
-  }
-  .exp__carousel .owl-item img {
-    height: 250px;
-  }
-  .exp__wrapper {
-    margin-top: 10px;
-  }
-  .myarrow img {
-    width: 30px;
-  }
-  .testimonial__wrapper .the__content p {
-    font-size: 18px;
-    line-height: 32px;
-  }
-  .testimonial__carousel {
-    margin-top: 40px;
-  }
-  .testi__profile {
-    height: 70px;
-    width: 70px;
-    margin-top: 20px;
-  }
-  .rating {
-    margin-top: 10px;
-  }
-  .rating img {
-    width: 15px !important;
-  }
-  .testi__info {
-    margin-top: 10px;
-  }
-  .testimonial__container::before,
-  .testimonial__container::after {
-    width: 100px;
-    height: 100px;
-  }
-  .partner__wrapper .item img {
-    height: 30px;
-  }
-  .sustainable__travel {
-    padding: 40px 0;
-  }
-  .sustainable__container {
-    margin-top: 120px;
-  }
-  .sustainable__travel .partner__section .partner__wrapper .item img {
-    height: 40px;
-  }
-  .sustainable__travel .partner__section {
-    margin-top: 20px;
-  }
-  .partner__wrapper {
-    column-gap: 20px;
-    row-gap: 20px;
-  }
-  .partner__title {
-    font-size: 24px;
-  }
-  .partner__section {
-    margin-top: 40px;
-  }
-  .top__reason__container {
-    margin-top: 30px;
-  }
-  .top__reason__carousel .item img {
-    width: 40px;
-    height: 40px;
-  }
-  .top__reason__carousel .item span {
-    font-size: 16px;
-    line-height: 24px;
-    margin-top: 10px;
-  }
-  .about__content {
-    margin-top: 20px;
-  }
-  .about__title a {
-    font-size: 22px;
-  }
-  .about__title {
-    line-height: 26px;
-  }
-  .about__container {
-    margin-top: 40px;
-  }
-  .about__card .hover__img img {
-    height: 400px;
-  }
-  .banner__text .banner__heading {
+  .banner__section,
+  .banner__section .banner__slider img {
+    height: 500px;
+  }
+  .banner__heading {
     font-size: 30px;
     line-height: 40px;
-    letter-spacing: -0.25px;
   }
-  .site-header.fixed .custom-logo, .default-header .custom-logo {
-    width: 65px;
+  .banner__meta,
+  .banner__subheading {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .btn {
+    padding: 10px 20px 12px;
+    font-size: 12px;
+  }
+  .banner__section .item::after {
+    background: linear-gradient(90.23deg, #294d91 0.22%, #294d916b 99.84%);
+  }
+  .school__info {
+    margin-top: 0;
+    padding: 30px 15px;
+  }
+  .school__info .wrapper {
+    display: grid;
+    align-items: center;
+    text-align: left;
+    gap: 15px;
+    grid-template-columns: 40px 1fr;
+  }
+  .school__info {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 30px;
+  }
+  .school__info .wrapper img {
+    height: 30px;
+    width: 40px;
+  }
+  .school__info__txt {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 0;
+    font-weight: 500;
+  }
+  .school__info__txt span {
+    font-size: 19px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 3px;
+  }
+  .activities__wrapper .hover__img img {
+    height: 250px;
+  }
+  .main__heading {
+    font-size: 25px;
+    line-height: 35px;
+  }
+  .who__are__we {
+    padding: 40px 0;
+  }
+  .activities__title {
+    font-size: 18px;
+    line-height: 22px;
+    padding-left: 12px;
+  }
+  .read-more-btn a {
+    font-size: 14px;
+  }
+  .read-more-btn a i {
+    font-size: 10px;
+    margin-left: 5px;
+  }
+
+  .principal__txt {
+    font-weight: 500;
+    font-size: 16px;
+  }
+  .principal__img__wrapper {
+    width: 100%;
+    margin: 30px 0 40px 0;
+  }
+  .principal__img__block {
+    width: 30%;
+  }
+  .principal__message__img {
+    margin-left: 5%;
+    top: 15px;
+  }
+  .principal__message__img img {
+    padding: 5px;
+  }
+  .principal__message__img::before {
+    width: calc(100% - 15px);
+    height: calc(100% - 15px);
+  }
+  .principal__txt {
+    top: 5px;
+    margin-left: 5%;
+  }
+  .principal__info {
+    padding: 30px;
+  }
+  .principal__info h3 {
+    font-size: 18px;
+    line-height: 23px;
+  }
+  .principal__info p {
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 5px;
+  }
+  .academic__achievement .wrapper {
+    padding: 20px;
+  }
+  .academic__achievement .wrapper h3 {
+    font-size: 20px;
+    line-height: 27px;
+    margin-top: 25px;
+  }
+  .academic__achievement .wrapper .icon img {
+    width: 30px;
+    height: 30px;
+  }
+  .academic__achievement .wrapper .icon {
+    width: 70px;
+    height: 70px;
+  }
+  .student__life .hover__img img {
+    height: auto;
+  }
+  .border-left-title a {
+    font-size: 18px;
+    line-height: 23px;
+    padding-left: 10px;
+  }
+  .student__life__content {
+    padding: 30px 20px;
+  }
+  .student__life .hover__img,
+  .student__life .hover__img img {
+    width: 100%;
+  }
+  .sub__heading {
+    font-size: 16px;
+  }
+  .team__name {
+    font-size: 20px;
+    line-height: 27px;
+  }
+  .team__info {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
-@media (max-width: 470px) {
-  .exp__carousel .owl-item img {
-    height: 200px;
+@media (max-width: 480px) {
+  .site-header .custom-logo {
+    width: 50px;
   }
-  .about__card .hover__img img {
-    height: 300px;
+  .header__logo.gap-10,
+  .bottom__header .wrapper {
+    gap: 5px;
   }
-  .about__overlay {
-    bottom: 30px;
-    padding: 20px;
+  .search__icon i {
+    font-size: 18px;
   }
 }
