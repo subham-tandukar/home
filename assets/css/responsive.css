@@ -1,514 +1,298 @@
-@media (max-width: 1599px) {
-  .student__life .hover__img {
-    margin-bottom: 20px;
-  }
-  .student__life .hover__img img {
-    height: 500px;
-  }
-}
 @media (max-width: 1440px) {
-  .site-header .custom-logo {
-    width: 60px;
+  .top__header__info strong {
+    display: block;
   }
-  .logo__text {
-    font-size: 16px;
-    line-height: 18px;
+  .banner__text .banner__heading {
+    max-width: 610px;
   }
-  .logo__text span {
-    font-size: 14px;
-    line-height: 20px;
+  .main__heading {
+    font-size: 60px;
+    line-height: 60px;
   }
-  .main-navigation > div > ul > li > a {
-    font-size: 15px;
-  }
-  .social__icons a i {
-    font-size: 18px;
-  }
-  .top__header__txt span,
-  .top__header__txt a {
-    font-size: 14px;
-    line-height: 18px;
-  }
-  .top__header .flex-row.gap-40 {
-    gap: 20px;
-  }
-  .activities__carousel .uk-slider-container {
-    margin: 0 40px;
-  }
-  .school__info .wrapper img {
-    height: 40px;
-  }
-  .school__info__txt {
-    font-size: 16px;
-  }
-  .school__info__txt span {
-    font-size: 22px;
-  }
-  .border-left-title a {
-    font-size: 20px;
-    line-height: 25px;
+  .feature__section {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media (max-width: 1199px) {
-  /* .custom__row {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-  .custom__col__side {
-    margin-top: 40px;
-  } */
-  .top__header__txt small {
+  .header__contact a:not(:nth-child(2)) {
     display: none;
   }
-  .banner__heading {
-    font-size: 40px;
-    line-height: 50px;
-  }
-  .banner__meta,
-  .banner__subheading {
-    font-size: 18px;
-    line-height: 22px;
-  }
-  .activities__carousel .uk-slider-container {
-    margin: 0 0;
-  }
-  .custom__col__main {
-    padding-left: 40px;
-  }
-  .activities__wrapper .hover__img img {
-    height: 330px;
-  }
-  .custom__row {
-    flex-direction: column;
-  }
-  .school__info {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    height: max-content;
-  }
-  .school__info .wrapper:not(:last-child) {
-    margin-bottom: 0;
-  }
-  .custom__col__side {
-    flex: 0;
-  }
-  .custom__col__main {
-    padding-left: 0;
-    margin-top: 40px;
-  }
-  .quote__img img {
-    width: 60px;
+  .header__contact a:not(:last-child)::after {
+    content: "";
   }
   .main__heading {
-    font-size: 35px;
-    line-height: 45px;
+    font-size: 50px;
+    line-height: 55px;
   }
-  .principal__info h3 {
-    font-size: 20px;
-    line-height: 25px;
+  .banner__text .banner__heading {
+    max-width: 510px;
   }
-  .principal__info p {
-    font-size: 16px;
-    line-height: 20px;
+  .villa__txt {
+    font-size: 80px;
+    line-height: 70px;
   }
-  .student__life .hover__img img {
-    height: 400px;
+  .review__wrapper > div:first-child {
+    width: 270px;
+  }
+  .review__wrapper > div:last-child {
+    width: calc(100% - 270px);
+  }
+  .quote__img img {
+    width: 80px !important;
+  }
+  .review__wrapper {
+    padding: 40px 50px 30px;
+  }
+  .title__wrapper .sub__heading p {
+    font-size: 18px;
+    line-height: 32px;
   }
 }
 
 @media (max-width: 959px) {
-  .top__header .flex-row.gap-40 {
-    gap: 10px;
+  .the__content p,
+  .entry-content p,
+  .the__content li {
+    font-size: 18px;
+    line-height: 32px;
   }
-  .school__info {
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 40px;
+  .top__header__info:last-child,
+  .main-navigation {
+    display: none;
   }
-  .who__img {
-    margin: 30px 0;
+  .site-header.fixed .nav__header {
+    padding: 15px 0;
+  }
+  .site-header .custom-logo {
+    width: 140px;
+  }
+  .top__header {
+    background: var(--primary);
+    padding: 10px 0 13px;
+  }
+  .top__header__info {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .banner__text .banner__heading {
+    max-width: 410px;
   }
   .main__heading {
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 40px;
+    line-height: 45px;
   }
-  .bordered__title {
-    font-size: 16px;
-    line-height: 20px;
+  .banner__text .banner__subheading p,
+  .banner__cta a {
+    font-size: 18px;
+    line-height: 34px;
   }
-  .principal__img__wrapper {
-    width: 75%;
-    margin: 30px 0 60px 0;
+
+  .banner__section,
+  .banner__slider,
+  .banner__slider img {
+    height: 750px;
   }
-  .principal__message,
-  .academic__achievement,
-  .student__life {
-    padding-bottom: 0;
+  .banner__cta a::after {
+    bottom: -25px;
   }
-  .academic__achievement .wrapper .icon img {
-    width: 40px;
+  .section {
+    padding: 70px 0;
+  }
+  .section-t {
+    padding-top: 70px;
+  }
+  .section-b {
+    padding-bottom: 70px;
+  }
+  .villa__txt {
+    font-size: 60px;
+    line-height: 60px;
+  }
+  .villa__txt__wrapper {
+    padding: 50px;
+  }
+  .room__container .room__cta {
+    bottom: 30px;
+  }
+  .feature__section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .feature__icon img {
     height: 40px;
   }
-  .academic__achievement .wrapper .icon {
+  .the__title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .review__wrapper {
+    flex-direction: column;
+  }
+  .review__wrapper > div {
+    width: 100% !important;
+  }
+  .review__wrapper .main__heading {
+    position: relative;
+    max-width: 100%;
+  }
+  .review__wrapper .main__heading::after {
+    content: "";
+    background-image: url("../img/quote.svg");
+    background-repeat: no-repeat;
     width: 80px;
-    height: 80px;
+    height: 65px;
+    background-size: contain;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
   }
-  .student__life .hover__img {
-    width: fit-content;
+  .quote__img {
+    display: none;
   }
-  .student__life .hover__img img {
-    width: auto;
+  .black__bg {
+    margin-top: -300px;
   }
-
-  .student__life
-    .content__wrapper
-    > .uk-grid
-    > div:nth-of-type(2n)
-    .uk-grid
-    > div:last-child {
-    background: var(--secondary);
-  }
-  .student__life
-    .content__wrapper
-    > .uk-grid
-    > div:nth-of-type(4n + 3)
-    .uk-grid
-    > div:last-child {
-    background: var(--primary);
-  }
-  .student__life
-    .content__wrapper
-    > .uk-grid
-    > div:nth-of-type(2n)
-    .uk-grid
-    > div:last-child
-    .border-left-title
-    a {
-    text-align: left;
-    border-left: 3px solid #000;
-    border-right: none;
-    padding-left: 15px;
-    padding-right: 0;
-    color: #000;
-  }
-  .student__life
-    .content__wrapper
-    > .uk-grid
-    > div:nth-of-type(2n)
-    .uk-grid
-    > div:last-child
-    .the__content
-    p {
-    text-align: left;
-    color: #000;
-  }
-
-  .student__life
-    .content__wrapper
-    > .uk-grid
-    > div:nth-of-type(4n + 3)
-    .uk-grid
-    > div:last-child
-    .border-left-title
-    a,
-  .student__life
-    .content__wrapper
-    > .uk-grid
-    > div:nth-of-type(4n + 3)
-    .uk-grid
-    > div:last-child
-    .the__content
-    p {
-    color: #fff;
-    border-color: #fff;
+  .title__wrapper {
+    flex-direction: column;
   }
 }
-
+@media (max-width: 767px) {
+  .accommodation__container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 @media (max-width: 639px) {
+  .the__content p,
+  .the__content.medium p,
+  .entry-content p,
+  .the__content li {
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  .link__title a {
+    font-size: 28px;
+    line-height: 34px;
+  }
+  .content__wrapper {
+    margin-top: 30px;
+  }
+  .section {
+    padding: 40px 0;
+  }
   .section-t {
     padding-top: 40px;
   }
   .section-b {
     padding-bottom: 40px;
   }
-  .section {
-    padding: 40px 0;
+  .btn {
+    padding: 8px 20px 10px;
+    font-size: 14px;
   }
-  .small-margin {
-    margin: 10px 0;
+  .btn span i {
+    margin-top: 4px;
+    font-size: 13px;
   }
-
-  .small__section {
+  .nav__header {
     padding: 30px 0;
   }
-  .content__wrapper {
-    margin-top: 20px;
+  .site-header .custom-logo {
+    width: 120px;
   }
-  .link__title a {
-    font-size: 18px;
-    line-height: 24px;
+  .site-header.fixed .custom-logo {
+    width: 100px;
   }
-  .link__title.link__title-large a {
-    font-size: 18px;
-    line-height: 20px;
-  }
-  .the__content p,
-  .entry-content p,
-  .the__content li {
-    font-size: 16px;
-    line-height: 26px;
-  }
-  .the__content p,
-  .entry-content p {
-    margin-top: 10px;
-  }
-  .the__content h1 {
-    font-size: 26px;
-    margin-bottom: 10px;
-  }
-  .the__content h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
-  .the__content h3,
-  .the__content h4,
-  .the__content h5 {
-    margin-bottom: 10px;
-    font-size: 20px;
-  }
-
-  .container-large,
-  .small__content {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  .error-404 {
-    padding-top: 90px;
-  }
-  .error-404 .error-watermark {
-    top: calc(50% - 90px);
-    font-size: 160px;
-  }
-  .error-404 .error-title {
-    font-size: 25px;
-  }
-  .error-404 .error-text {
-    font-size: 14px;
-    margin-top: 10px;
-  }
-
-  /* Galleries
---------------------------------------------- */
-
-  .gallery-columns-2,
-  .gallery-columns-3,
-  .gallery-columns-4,
-  .gallery-columns-5,
-  .gallery-columns-6,
-  .gallery-columns-7,
-  .gallery-columns-8,
-  .gallery-columns-9 {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .gallery-item img {
-    height: auto;
-  }
-  .popup__form form p {
-    grid-column: span 12;
-  }
-
-  .the__title.large {
-    font-size: 17px;
-  }
-  .the__title.small {
-    font-size: 16px;
-  }
-
-  /* popup form */
-  .uk-modal-body {
-    padding: 20px 20px;
-  }
-
-  .pop__head {
-    font-size: 22px;
-    line-height: 26px;
-  }
-  .pop__head span {
-    font-size: 18px;
-  }
-
-  /* popup form */
-
-  .banner__section,
-  .banner__section .banner__slider img {
-    height: 500px;
-  }
-  .banner__heading {
-    font-size: 30px;
-    line-height: 40px;
-  }
-  .banner__meta,
-  .banner__subheading {
-    font-size: 16px;
-    line-height: 20px;
-  }
-  .btn {
-    padding: 10px 20px 12px;
-    font-size: 12px;
-  }
-  .banner__section .item::after {
-    background: linear-gradient(90.23deg, #294d91 0.22%, #294d916b 99.84%);
-  }
-  .school__info {
-    margin-top: 0;
-    padding: 30px 15px;
-  }
-  .school__info .wrapper {
-    display: grid;
-    align-items: center;
-    text-align: left;
-    gap: 15px;
-    grid-template-columns: 40px 1fr;
-  }
-  .school__info {
-    grid-template-columns: repeat(1, 1fr);
-    row-gap: 30px;
-  }
-  .school__info .wrapper img {
-    height: 30px;
-    width: 40px;
-  }
-  .school__info__txt {
-    font-size: 14px;
-    display: flex;
-    flex-direction: column-reverse;
-    margin-top: 0;
-    font-weight: 500;
-  }
-  .school__info__txt span {
-    font-size: 19px;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 3px;
-  }
-  .activities__wrapper .hover__img img {
-    height: 250px;
+  .banner__text .banner__heading {
+    max-width: 310px;
   }
   .main__heading {
-    font-size: 25px;
+    font-size: 30px;
     line-height: 35px;
+    margin-bottom: 15px;
   }
-  .who__are__we {
-    padding: 40px 0;
+  .banner__subheading {
+    display: none;
   }
-  .activities__title {
+  .banner__cta {
+    margin-top: 30px;
+  }
+
+  .banner__section,
+  .banner__slider,
+  .banner__slider img {
+    height: 600px;
+  }
+
+  .banner__text .banner__subheading p,
+  .banner__cta a {
+    font-size: 15px;
+    line-height: 30px;
+  }
+  .banner__cta a::after {
+    bottom: -24px;
+  }
+  .top__header {
+    display: none;
+  }
+
+  .feature__icon img {
+    height: 35px;
+  }
+  .the__title {
     font-size: 18px;
     line-height: 22px;
-    padding-left: 12px;
   }
-  .read-more-btn a {
+  .feature__section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .feature__content p {
     font-size: 14px;
+    line-height: 24px;
+    max-width: 100%;
   }
-  .read-more-btn a i {
-    font-size: 10px;
-    margin-left: 5px;
-  }
-
-  .principal__txt {
-    font-weight: 500;
-    font-size: 16px;
-  }
-  .principal__img__wrapper {
-    width: 100%;
-    margin: 30px 0 40px 0;
-  }
-  .principal__img__block {
-    width: 30%;
-  }
-  .principal__message__img {
-    margin-left: 5%;
-    top: 15px;
-  }
-  .principal__message__img img {
-    padding: 5px;
-  }
-  .principal__message__img::before {
-    width: calc(100% - 15px);
-    height: calc(100% - 15px);
-  }
-  .principal__txt {
-    top: 5px;
-    margin-left: 5%;
-  }
-  .principal__info {
+  .villa__txt__wrapper {
     padding: 30px;
   }
-  .principal__info h3 {
-    font-size: 18px;
-    line-height: 23px;
+  .villa__txt {
+    font-size: 40px;
+    line-height: 45px;
   }
-  .principal__info p {
-    font-size: 14px;
-    line-height: 18px;
-    margin-top: 5px;
+  .room__container .room__cta {
+    bottom: 20px;
   }
-  .academic__achievement .wrapper {
+  .facilities__section {
+    margin-top: -270px;
+  }
+
+  .facilities__icon img {
+    height: 45px;
+  }
+  .review__wrapper {
+    padding: 30px 30px 30px;
+  }
+  .review__info {
+    margin-top: 30px;
+  }
+  .review__wrapper .main__heading::after {
+    width: 60px;
+    height: 50px;
+  }
+  .black__bg {
+    margin-top: -350px;
+  }
+  .title__wrapper .sub__heading p {
+    font-size: 16px;
+    line-height: 30px;
+  }
+  .activities__carousel .hover__img img {
+    height: 200px;
+  }
+  .activities__content {
     padding: 20px;
   }
-  .academic__achievement .wrapper h3 {
-    font-size: 20px;
-    line-height: 27px;
-    margin-top: 25px;
-  }
-  .academic__achievement .wrapper .icon img {
-    width: 30px;
-    height: 30px;
-  }
-  .academic__achievement .wrapper .icon {
-    width: 70px;
-    height: 70px;
-  }
-  .student__life .hover__img img {
-    height: auto;
-  }
-  .border-left-title a {
-    font-size: 18px;
-    line-height: 23px;
-    padding-left: 10px;
-  }
-  .student__life__content {
-    padding: 30px 20px;
-  }
-  .student__life .hover__img,
-  .student__life .hover__img img {
-    width: 100%;
-  }
-  .sub__heading {
-    font-size: 16px;
-  }
-  .team__name {
-    font-size: 20px;
-    line-height: 27px;
-  }
-  .team__info {
-    font-size: 16px;
-    line-height: 24px;
-  }
+  .activities__content .the__content {
+	margin: 10px 0 20px;
 }
-
-@media (max-width: 480px) {
-  .site-header .custom-logo {
-    width: 50px;
-  }
-  .header__logo.gap-10,
-  .bottom__header .wrapper {
-    gap: 5px;
-  }
-  .search__icon i {
-    font-size: 18px;
-  }
 }
