@@ -1,7 +1,5 @@
 var $ = jQuery;
 
-
-
 headerScroll = () => {
   $(window).scroll(function () {
     var sticky = $(".site-header"),
@@ -16,15 +14,21 @@ headerScroll = () => {
 };
 
 menuOffcanvas = () => {
-  // for fullscreen menu
-  $(".hamburger-toggle").on("click", function (e) {
+  $(".ham-menu").on("click", function (e) {
     e.preventDefault();
-    $(".fullscreen__menu").addClass("show__menu").removeClass("hide__menu");
-    $("html").addClass("toggleOverflow");
+    $(".offcanvas").addClass("show");
+    $(".offcanvas__bar").addClass("showbar");
+    $("html").css("overflow", "hidden");
   });
-  $(".close__menu").on("click", function (e) {
-    $(".fullscreen__menu").addClass("hide__menu").removeClass("show__menu");
-    $("html").removeClass("toggleOverflow");
+
+  $(".offcanvas__bar").on("click", function (e) {
+    var container = $(".offcanvas__sidebar");
+
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+      $(".offcanvas").removeClass("show");
+      $(".offcanvas__bar").removeClass("showbar");
+      $("html").css("overflow", "visible");
+    }
   });
 
   $(
@@ -57,118 +61,182 @@ menuOffcanvas = () => {
   );
 };
 
-bannerCarousel = () => {
-  $(".banner__section .owl-carousel").owlCarousel({
+destinationCarousel = () => {
+  var mySlider = $(".destination__carousel .owl-carousel");
+  mySlider.owlCarousel({
     items: 1,
     loop: true,
-    dots: false,
-    smartSpeed: 2000,
-    // nav: true,
-    autoplay: true,
-    autoplayTimeout: 10000,
-    mouseDrag: false,
-    animateOut: "fadeOut",
-    // navText: [
-    //   "<div class='prev-slide custom__nav'><span></span></div>",
-    //   "<div class='next-slide custom__nav'><span></span></div>",
-    // ],
+    dots: true,
+    nav: true,
+    navText: [
+      "<div class='prev-slide custom__nav'><span></span></div>",
+      "<div class='next-slide custom__nav'><span></span></div>",
+    ],
+    center: true,
+    autoHeight: true,
+    // mouseDrag: false,
+    smartSpeed: 1000,
+    margin: 0,
+    responsive: {
+      0: {
+        items: 2.5,
+      },
+
+      960: {
+        items: 3.5,
+      },
+      1200: {
+        items: 4.75,
+      },
+    },
   });
+
+  //   $(".destination-arrow .nextarrow").click(function () {
+  //     mySlider.trigger("next.owl.carousel", [1000]);
+  //     toggleMyArrows();
+  //   });
+
+  //   $(".destination-arrow .prevarrow").click(function () {
+  //     mySlider.trigger("prev.owl.carousel", [1000]);
+  //     toggleMyArrows();
+  //   });
+
+  //   $(".owl-dot").click(function () {
+  //     var dotIndex = $(this).index();
+  //     mySlider.trigger("to.owl.carousel", [dotIndex, 1000]);
+  //     toggleMyArrows();
+  //   });
+
+  //   // Function to toggle arrows based on the current slide position
+  //   function toggleMyArrows() {
+  //     var currentIndex = mySlider.find(".owl-item.active").index();
+  //     var totalItems = mySlider.find(".owl-item").length;
+
+  //     if (currentIndex === 0) {
+  //       $(".destination-arrow .prevarrow").addClass("disabled");
+  //     } else {
+  //       $(".destination-arrow .prevarrow").removeClass("disabled");
+  //     }
+
+  //     if (currentIndex === totalItems - 1) {
+  //       $(".destination-arrow .nextarrow").addClass("disabled");
+  //     } else {
+  //       $(".destination-arrow .nextarrow").removeClass("disabled");
+  //     }
+
+  //     if (totalItems === 1) {
+  //       $(".destination-arrow .nextarrow").addClass("uk-hidden");
+  //       $(".destination-arrow .prevarrow").addClass("uk-hidden");
+  //     } else {
+  //       $(".destination-arrow .nextarrow").removeClass("uk-hidden");
+  //       $(".destination-arrow .prevarrow").removeClass("uk-hidden");
+  //     }
+  //   }
+
+  //   // Initial toggle based on initial slide position
+  //   mySlider.on("changed.owl.carousel", function () {
+  //     toggleMyArrows();
+  //   });
+  //   // Assume that 'mySlider' is your Owl Carousel instance
+  //   mySlider.on("dragged.owl.carousel", function (event) {
+  //     // Call the functions on touch drag
+  //     toggleMyArrows();
+  //   });
+
+  //   toggleMyArrows();
 };
-reviewCarousel = () => {
-  $(".review__carousel .owl-carousel").owlCarousel({
-    items: 1,
-    loop: true,
-    dots: false,
-    smartSpeed: 2000,
-    margin: 70,
-    // nav: true,
-    autoplay: true,
-    autoplayTimeout: 5000,
-    autoplayHoverPause: true,
-    // navText: [
-    //   "<div class='prev-slide custom__nav'><span></span></div>",
-    //   "<div class='next-slide custom__nav'><span></span></div>",
-    // ],
+
+courseAccordion = () => {
+  $(".course__title").click(function () {
+    var tab_id = $(this).attr("data-tab");
+    if ($(this).hasClass("current")) {
+      $(this).addClass("current");
+    } else {
+      $(".course__title").removeClass("current");
+      $(".course__img").removeClass("current");
+
+      $(this).addClass("current");
+      $("#" + tab_id)
+        .addClass("current")
+        .hide()
+        .fadeIn(900);
+    }
   });
 };
 
-activitiesCarousel = () => {
-  var mySlider = $(".activities__carousel .owl-carousel");
+videoCarousel = () => {
+  var mySlider = $(".video__carousel .owl-carousel");
   mySlider.owlCarousel({
     items: 1,
     loop: true,
     dots: false,
     nav: false,
-    autoHeight: true,
     smartSpeed: 1000,
-    margin: 30,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
+    margin: 20,
     responsive: {
       0: {
-        items: 1.25,
-      },
-     
-      960: {
         items: 1.5,
       },
-      1200: {
+
+      960: {
         items: 2.5,
       },
     },
   });
+};
 
-  $(".activities-arrow .nextarrow").click(function () {
-    mySlider.trigger("next.owl.carousel", [1000]);
-    toggleMyArrows();
+testimonialCarousel = () => {
+  var mySlider = $(".testimonial__carousel .owl-carousel");
+  mySlider.owlCarousel({
+    items: 1,
+    loop: true,
+    dots: false,
+    autoHeight: true,
+    nav: true,
+    navText: [
+      "<div class='prev-slide custom__nav'><span></span></div>",
+      "<div class='next-slide custom__nav'><span></span></div>",
+    ],
+    smartSpeed: 1000,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
+    margin: 20,
   });
+};
 
-  $(".activities-arrow .prevarrow").click(function () {
-    mySlider.trigger("prev.owl.carousel", [1000]);
-    toggleMyArrows();
+partnerCarousel = () => {
+  var mySlider = $(".partner__carousel .owl-carousel");
+  mySlider.owlCarousel({
+    items: 1,
+    loop: true,
+    dots: true,
+    autoHeight: true,
+    nav: false,
+    smartSpeed: 1000,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
+    margin: 20,
+    responsive: {
+      0: {
+        items: 2,
+      },
+
+      640: {
+        items: 3,
+      },
+      960: {
+        items: 4,
+      },
+      1200: {
+        items: 5,
+      },
+    },
   });
-
-  $(".owl-dot").click(function () {
-    var dotIndex = $(this).index();
-    mySlider.trigger("to.owl.carousel", [dotIndex, 1000]);
-    toggleMyArrows();
-  });
-
-  // Function to toggle arrows based on the current slide position
-  function toggleMyArrows() {
-    var currentIndex = mySlider.find(".owl-item.active").index();
-    var totalItems = mySlider.find(".owl-item").length;
-
-    if (currentIndex === 0) {
-      $(".activities-arrow .prevarrow").addClass("disabled");
-    } else {
-      $(".activities-arrow .prevarrow").removeClass("disabled");
-    }
-
-    if (currentIndex === totalItems - 1) {
-      $(".activities-arrow .nextarrow").addClass("disabled");
-    } else {
-      $(".activities-arrow .nextarrow").removeClass("disabled");
-    }
-
-    if (totalItems === 1) {
-      $(".activities-arrow .nextarrow").addClass("uk-hidden");
-      $(".activities-arrow .prevarrow").addClass("uk-hidden");
-    } else {
-      $(".activities-arrow .nextarrow").removeClass("uk-hidden");
-      $(".activities-arrow .prevarrow").removeClass("uk-hidden");
-    }
-  }
-
-  // Initial toggle based on initial slide position
-  mySlider.on("changed.owl.carousel", function () {
-    toggleMyArrows();
-  });
-  // Assume that 'mySlider' is your Owl Carousel instance
-  mySlider.on("dragged.owl.carousel", function (event) {
-    // Call the functions on touch drag
-    toggleMyArrows();
-  });
-
-  toggleMyArrows();
 };
 
 scrollAnimation = () => {
@@ -180,15 +248,6 @@ scrollAnimation = () => {
   };
 
   const animateHeading = $(".animate__heading");
-  const animateImg = $(".animate__img");
-  const reviewBg = document.querySelector(".review__bg");
-
-  let reviewobserver = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting === true) {
-      reviewBg.classList.add("visible");
-    }
-  }, options);
-  reviewBg && reviewobserver.observe(reviewBg);
 
   // For animateHeading Loop through each heading --------------
   animateHeading.each(function (index) {
@@ -206,57 +265,15 @@ scrollAnimation = () => {
     // Observe the current .step__grid
     headingObserver.observe($(this).get(0)); // Get the first element from the jQuery collection
   });
-
-  // For animateImg Loop through each img --------------
-  animateImg.each(function (index) {
-    let imgObserver = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting === true) {
-        // Add class to the current .step__grid
-        $(this).addClass("visible");
-      }
-      // else {
-      //   // Remove class from the current .step__grid
-      //   $(this).removeClass("visible");
-      // }
-    }, imgoptions);
-
-    // Observe the current .step__grid
-    imgObserver.observe($(this).get(0)); // Get the first element from the jQuery collection
-  });
-};
-
-mouseMove = () => {
-  $(".service__section").on("mousemove", function (event) {
-    const cursor = $(".cursor");
-    const { clientX, clientY } = event;
-    cursor.css({
-      transform: `translate(${clientX}px, ${clientY}px)`,
-    });
-  });
-  $(".swiper-button-next").on("mouseenter", function (event) {
-    const cursor = $(".cursor");
-    cursor.addClass("cursor-right");
-  });
-  $(".swiper-button-next").on("mouseleave", function (event) {
-    const cursor = $(".cursor");
-    cursor.removeClass("cursor-right");
-  });
-  $(".swiper-button-prev").on("mouseenter", function (event) {
-    const cursor = $(".cursor");
-    cursor.addClass("cursor-left");
-  });
-  $(".swiper-button-prev").on("mouseleave", function (event) {
-    const cursor = $(".cursor");
-    cursor.removeClass("cursor-left");
-  });
 };
 
 jQuery(document).ready(function ($) {
   headerScroll();
   menuOffcanvas();
-  bannerCarousel();
-  reviewCarousel();
-  activitiesCarousel();
+  destinationCarousel();
+  courseAccordion();
+  videoCarousel();
+  testimonialCarousel();
+  partnerCarousel();
   scrollAnimation();
-  mouseMove();
 });
