@@ -1,184 +1,191 @@
-@media (max-width: 1399px) {
+@media (max-height: 800px) {
+  .banner__text {
+    top: 180px;
+  }
+  .bordered__header {
+    padding-bottom: 30px;
+  }
   .banner__heading {
-    font-size: 44px;
-    line-height: 57px;
-  }
-  .main__heading {
-    font-size: 32px;
-    line-height: 42px;
-  }
-  .why__icon {
-    width: 95px;
-    height: 95px;
-  }
-  .why__icon img {
-    height: 32px;
-  }
-  .course__accordion .uk-accordion-title {
-    font-size: 29px;
-    line-height: 39px;
-  }
-  .course__badge img {
-    width: 50px;
-  }
-  .course__badge {
-    padding: 15px 15px 20px;
+    font-size: 60px;
+    line-height: 80px;
   }
 }
-@media (max-width: 1199px) {
-  .banner__heading {
-    font-size: 34px;
-    line-height: 47px;
+
+@media (max-width: 1599px) {
+  .special__grid .special__card:last-child .special__img {
+    width: 400px;
   }
-  .banner__content p {
-    font-size: 18px;
-    line-height: 28px;
+  .special__grid {
+    grid-template-columns: 540px 1fr;
   }
-  .banner__title {
-    font-size: 16px;
+  .menu__carousel .owl-nav {
+  display: none;
   }
-  .site-header .custom-logo {
-    width: 170px;
+  .menu__carousel .owl-carousel {
+    padding: 0;
   }
-  .main__banner__text {
-    margin-top: 40px;
+  .testimonial__img::after {
+    width: 720px;
   }
-  .main-navigation > div > ul > li > a {
-    font-size: 16px;
-    padding: 14px 12px;
+  .testimonial__img::before {
+    width: 700px;
+  }
+  .testimonial__img img {
+    height: 500px;
+  }
+  .testimonial__grid > div:first-child::before {
+    top: 11%;
+  }
+  .testimonial__grid > div:first-child::after {
+    bottom: -24px;
+  }
+  .testimonial__content::before {
+    width: 250px;
+  }
+  .testimonial__grid > div:last-child {
+    width: calc(100% - 760px);
+  }
+}
+@media (max-width: 1399px) {
+  .special__grid .special__card:last-child .special__img {
+    width: 350px;
+  }
+  .link__title.big a {
+    font-size: 35px;
+    line-height: 45px;
+  }
+  .special__card, .special__grid .special__card:last-child {
+    flex-direction: column;
+  }
+  .special__card__content {
+    padding-bottom: 40px;
+  }
+  .special__grid .special__card:first-child .special__img {
+    width: 130px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .special__grid .special__card:last-child .special__img {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
+  .testimonial__img::after {
+    width: 570px;
+  }
+  .testimonial__img::before {
+    width: 550px;
+  }
+  .testimonial__img img {
+    height: 450px;
+  }
+
+  .testimonial__content::before {
+    width: 200px;
+  }
+  .testimonial__grid > div:last-child {
+    width: calc(100% - 610px);
+  }
+  .testimonial__img {
+    padding-left: 100px;
+  }
+  .testimonial__img::after {
+    bottom: -17px;
+  }
+ 
+}
+@media (max-width: 1199px) {
   .main__heading {
+    font-size: 35px;
+    line-height: 45px;
+  }
+  .popular__container{
+    margin-top: 10px;
+  }
+  .special__grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .special__card, .special__grid .special__card:last-child {
+    flex-direction: row;
+  }
+  .special__grid .special__card:last-child .special__card__content {
+    text-align: left;
+  }
+  .special__grid .special__card:last-child .special__badge {
+    margin-left: 0;
+  }
+  .special__grid .special__card:last-child .special__cta {
+    justify-content: flex-start;
+  }
+  .link__title.big a {
     font-size: 30px;
     line-height: 40px;
   }
-  .sub__heading {
-    margin-bottom: 10px;
+  .testimonial__grid > div:first-child {
+    display: none;
   }
-  .course__accordion .uk-accordion-title {
-    font-size: 25px;
-    line-height: 35px;
+  .testimonial__grid > div:last-child {
+    width: 100%;
   }
-  .course__wrapper {
-    padding: 40px;
-    padding-right: 0;
+  .testimonial__content {
+    margin-top: 0;
   }
-  .gallery__grid > div {
-    grid-column: span 6 !important;
+  .testimonial__carousel .the__content {
+    max-width: 900px;
   }
-  .gallery__grid > div:nth-child(6) .hover__img img {
-    height: 180px;
+  .testimonial__content .main__heading::before {
+    background: url("../img/quote.svg");
+    width: 45px;
+    height: 45px;
+    left: 10px;
+    content: "";
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
-  .link__title a {
-    font-size: 24px;
-    line-height: 30px;
+  .testimonial__content{
+    padding-top: 10px;
   }
-  .event__txt {
-    font-size: 16px;
-  }
-  .milestone__icon {
-    height: 130px;
-    width: 130px;
-  }
-  .milestone__icon::before {
-  
-    width: 115px;
-    height: 115px;
-  }
-  .milestone__icon img {
-    height: 40px;
-    width: 40px;
-  }
-  .milestone__count span {
-    font-size: 30px;
-  }
-  .milestone__count {
-    font-size: 16px;
-  }
-  .milestone__wrapper {
-    column-gap: 100px;
+  .testimonial__content .main__heading, .testimonial__carousel {
+    padding-left: 70px;
   }
 }
 
 @media (max-width: 959px) {
-  /*  */
-  .content__wrapper {
-    margin-top: 40px;
-  }
 
+  .banner__section .item::after {
+    background-size: contain;
+  }
+  /*  */
   .section {
-    padding: 50px 0;
+    padding: 70px 0;
   }
   .section-t {
-    padding-top: 50px;
+    padding-top: 70px;
   }
   .section-b {
-    padding-bottom: 50px;
+    padding-bottom: 70px;
   }
-
-  /*  */
-  .header__top a span,
-  .header__top span {
-    display: none;
-  }
-  .banner__heading {
+  .main__heading {
     font-size: 30px;
     line-height: 40px;
   }
-  .main__banner__text {
-    margin-top: 0;
+  .why__content p {
+    margin-bottom: 20px;
   }
-  .main__banner__wrapper {
-    grid-template-columns: repeat(1, 1fr);
+  .why__img img {
+    height: 40px;
   }
-  .banner__image {
-    width: 60%;
-    margin: 10px 0 30px;
+  .special__grid .special__card:last-child .special__img {
+    width: 250px;
   }
-  .banner__map {
-    top: auto;
-    bottom: 0;
-  }
-  .main__heading {
-    font-size: 28px;
-    line-height: 38px;
-  }
-  .why__card {
-    padding: 30px;
-  }
-  .about__content .mt-40 {
+  .content__wrapper {
     margin-top: 30px;
   }
-  .gallery__grid > div:nth-child(6) .hover__img img,
-  .gallery__grid .hover__img img {
-    height: 300px;
-  }
-  .event__grid__img {
-    width: 200px;
-  }
-  .main__heading.bordered {
-    padding-bottom: 10px;
-  }
-
-  .milestone__icon {
-    height: 100px;
-    width: 100px;
-  }
-  .milestone__icon::before {
-  
-    width: 85px;
-    height: 85px;
-  }
-  .milestone__icon img {
-    height: 30px;
-    width: 30px;
-  }
-  .milestone__count span {
-    font-size: 25px;
-  }
-
-  .milestone__wrapper {
-    column-gap: 70px;
+  .menu__container {
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
 
@@ -200,42 +207,9 @@
     margin-top: 10px;
   }
 
-  /* Galleries
-      --------------------------------------------- */
-
-  .gallery-columns-2,
-  .gallery-columns-3,
-  .gallery-columns-4,
-  .gallery-columns-5,
-  .gallery-columns-6,
-  .gallery-columns-7,
-  .gallery-columns-8,
-  .gallery-columns-9 {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .gallery-item img {
-    height: auto;
-  }
-  .popup__form form p {
-    grid-column: span 12;
-  }
-  .the__title {
-    font-size: 20px;
-    line-height: 26px;
-    margin: 0;
-    margin-bottom: 10px;
-  }
-  .the__title.large {
-    font-size: 17px;
-  }
-  .the__title.small {
-    font-size: 15px;
-  }
-  /*  */
 
   /*  */
   .the__content p,
-  .the__content.medium p,
   .entry-content p,
   .the__content li {
     font-size: 17px;
@@ -243,140 +217,132 @@
   }
 
   .link__title a {
-    font-size: 22px;
+    font-size: 20px;
     line-height: 30px;
+  }
+  .link__title.big a {
+    font-size: 25px;
+    line-height: 35px;
   }
   .content__wrapper {
     margin-top: 20px;
   }
   .section {
-    padding: 30px 0;
+    padding: 40px 0;
   }
   .section-t {
-    padding-top: 30px;
+    padding-top: 40px;
   }
   .section-b {
-    padding-bottom: 30px;
+    padding-bottom: 40px;
   }
-  .btn {
-    padding: 6px 16px 8px;
-    font-size: 14px;
+ 
+  .the__title {
+    font-size: 18px;
+    line-height: 22px;
   }
-  .btn span i {
-    margin-top: 3px;
-    font-size: 11px;
-  }
-  .btn:hover span i {
-    margin-left: 9px;
-  }
-  .btn span img {
-    width: 15px;
-    height: 15px;
-  }
-
-  /*  */
-  .banner__title {
-    font-size: 14px;
-  }
-  .banner__heading {
-    font-size: 26px;
-    line-height: 36px;
-    margin: 5px 0;
-  }
-  .banner__image {
-    width: 100%;
-    margin: 10px 0 20px;
-  }
-  .main__banner__section {
-    padding: 30px 0;
-  }
-  .banner__btn {
-    margin-top: 20px;
+  .popular__container{
+    margin-top: 0;
   }
   .main__heading {
-    font-size: 25px;
-    line-height: 35px;
-    margin-bottom: 10px;
+    font-size: 27px;
+    line-height: 37px;
   }
-  .sub__heading {
-    font-size: 14px;
-    margin-bottom: 5px;
+  .heading__icon img {
+   display: none;
   }
-  .sub__heading::before {
-    padding-right: 2px;
+  .item__card__img img {
+    height: 250px;
   }
-  .why__icon {
-    width: 75px;
-    height: 75px;
-    border: 3px solid var(--secondary);
+  .item__card__img {
+    height: 280px;
   }
-  .why__icon img {
-    height: 28px;
-  }
-  .why__card {
-    border-radius: 42px 0px 42px 42px;
-    padding: 20px;
-  }
-  .about__content .mt-40 {
-    margin-top: 20px;
-  }
-  .course__accordion .uk-accordion-title {
-    font-size: 22px;
-    line-height: 32px;
-  }
-  .uk-accordion-title::before {
-    font-size: 16px;
-  }
-  .the__content ul,
-  .the__content ul li:last-child {
-    margin-bottom: 0;
-  }
-  .uk-accordion-content {
+  .item__card__content {
     margin-top: 10px;
   }
-  .course__img {
-    height: auto;
-  }
-  .course__wrapper {
-    padding: 0;
-  }
-  .course__badge {
-    padding: 10px 10px 10px;
-    top: -10px;
-    left: -10px;
-    font-size: 14px;
+  .item__card ,.item__card__img{
     border-radius: 22px;
   }
-  .course__badge img {
-    width: 30px;
-    margin-bottom: 5px;
+  .item__card__qty {
+    font-size: 16px;
+    margin-top: 4px;
   }
-  .gallery__grid > div:nth-child(6) .hover__img img,
-  .gallery__grid .hover__img img {
-    height: auto;
-    aspect-ratio: 4/3;
+
+  .item__card__price {
+    font-size: 16px;
+    padding: 6px 16px 6px;
   }
-  .my__card {
-    border-radius: 32px;
-    padding: 20px;
+  .btn {
+    padding: 9px 18px 11px;
+    font-size: 14px;
   }
-  .event__grid {
+  .btn img {
+    width: 18px !important;
+  }
+  .popular__container::before {
+    left: -30px;
+    top: -90px;
+    width: 100px;
+    height: 200px;
+  }
+  .popular__container::after {
+    right: -10px;
+    bottom: -60px;
+    width: 61px;
+    height: 148px;
+  }
+  .why__img img {
+    height: 30px;
+  }
+  .why__img {
+    width: 80px;
+    height: 80px;
+  }
+  .why__content p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .why__content p {
+    font-size: 17px;
+    line-height: 25px;
+  }
+  .special__card, .special__grid .special__card:last-child {
     flex-direction: column;
-    gap: 20px;
   }
-  .event__grid__img {
-    width: auto;
+  .special__cta {
+    margin-top: 20px;
   }
-  .milestone__icon {
-    height: 90px;
-    width: 90px;
+  .special__badge {
+    font-size: 14px;
+    line-height: 15px;
+    width: 65px;
+    height: 65px;
+    margin-bottom: 20px;
   }
-  .milestone__icon::before {
-  
-    width: 75px;
-    height: 75px;
+  .special__badge span {
+    margin-top: 3px;
   }
-  .milestone__count {
-    margin-top: 15px;
+  .owl-theme .owl-dots {
+    margin-top: 0;
+  }
+  .menu__container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .testimonial__content .main__heading::before {
+    right: 0;
+    left: auto;
+    transform: rotate(180deg);
+    top: 5px
+  }
+  .testimonial__content .main__heading, .testimonial__carousel {
+    padding-left: 20px;
+  }
+  .testimonial__content .main__heading {
+    padding-right: 60px;
+  }
+  .testimonial__content::before {
+    top: 100px;
   }
 }
+
