@@ -14,5 +14,7 @@
 <script src="./assets/js/uikit-icons.min.js"></script>
 <script src="./assets/js/uikit.min.js"></script>
 
+<script src="https://localhost:3000/okcalendar@1.0.0/dist/okcalendar.min.js"></script>
+
 <!-- Custom Js -->
 <script src="./assets/js/main.js"></script>

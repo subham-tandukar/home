@@ -1,3 +1,4 @@
+<div data-widget="ok-holidays"></div>
 <footer class="site-footer">
     <div class="top__footer">
         <div class="footer__contact">
