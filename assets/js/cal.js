@@ -233,19 +233,27 @@ const popUp = (data) => {
 
             <div class="ok-day-site-info">
               ${data.tithi_title_np} 
-              <span class="ok-day-sunrise">
-                सूर्योदय ${data.sunrise_np} 
-              </span>
-              <span class="ok-day-sunrise">
-                सूर्यास्त ${data.sunset_np} 
-              </span>
+              
+                ${data.sunrise_np ? 
+                  `<span class="ok-day-sunrise">
+                    सूर्योदय ${data.sunrise_np}
+                  </span>
+                  `
+                  : "" 
+                }
+
+                 ${data.sunset_np ? 
+                  `<span class="ok-day-sunrise">
+                    सूर्यास्त ${data.sunset_np}
+                  </span>
+                  `
+                  : "" 
+                }
             </div>
 
             <div>
               <span class="ok-badge ok-eng-font">
-              ${data.ad_month_en} ${data.ad_date_en}, ${data.ad_year_en}, ${
-    data.day_en
-  }
+                ${data.ad_month_en} ${data.ad_date_en}, ${data.ad_year_en}, ${data.day_en}
               </span>
             </div>
           </div>
@@ -322,7 +330,7 @@ const popUp = (data) => {
                 पक्ष:
               </div>
               <div>
-              ${data.pakshya_np}
+              ${data.pakshya_np || "-"}
               </div>
             </div>
 
@@ -331,7 +339,7 @@ const popUp = (data) => {
                 सूर्योदय:
               </div>
               <div>
-              ${data.sunrise_np} 
+              ${data.sunrise_np || "-"} 
               </div>
             </div>
 
@@ -340,7 +348,7 @@ const popUp = (data) => {
                 सूर्यास्त:
               </div>
               <div>
-              ${data.sunset_np} 
+              ${data.sunset_np || "-"} 
               </div>
             </div>
 
@@ -349,7 +357,7 @@ const popUp = (data) => {
                 ऋतु:
               </div>
               <div>
-              ${data.ritu_np}
+              ${data.ritu_np || "-"}
               </div>
             </div>
 
@@ -358,7 +366,10 @@ const popUp = (data) => {
                 तिथी:
               </div>
               <div>
-              ${data.tithi_title_np} ${data.tithi_end_time_np} बजेसम्म
+              ${data.tithi_title_np || data.tithi_end_time_np  ?  
+                data.tithi_title_np + data.tithi_end_time_np + "बजेसम्म" :
+              "-"
+              }
               </div>
             </div>
           </div>
@@ -404,6 +415,30 @@ const fetchData = async (url) => {
   return data;
 };
 
+const getPreviousArray =(calendarData,previousData)=>{
+  const dayCode = calendarData.data[0].day_code_en;
+  const dayEn = calendarData.data[0].day_en;
+  const prevDayCode = dayCode - 1;
+
+  let prevArray;
+  if (dayEn === "Sunday") {
+    prevArray = [];
+  } else {
+    prevArray = previousData.data.slice(-prevDayCode);
+  }
+
+  return prevArray;
+}
+
+const getNextArray =(calendarData,nextMonthData)=>{
+  const lastDayCode =
+    calendarData.data[calendarData.data.length - 1].day_code_en;
+  const nextDayCode = 7 - lastDayCode;
+  const nextArray = nextMonthData.data.slice(0, nextDayCode);
+
+  return nextArray;
+}
+
 const noData = () =>
   `<div class="ok-calendar">
       <div class="ok-card ok-error">
@@ -414,7 +449,7 @@ const noData = () =>
 
 const okDay = (data, width) =>
   `<div class="ok-calendar">
-  <a href="${process.env.NEXT_PUBLIC_LIVE_URL}" target="_blank">
+  <a class="ok-card-target" href="${process.env.NEXT_PUBLIC_LIVE_URL}" target="_blank">
     <div class="ok-card ok-day">
       <div class="ok-day-circle">
         ${data.data.bs_date_np}
@@ -456,7 +491,7 @@ const okDay = (data, width) =>
 
 const okDaySmall = (data, width) =>
   `<div class="ok-calendar">
-        <a href="${process.env.NEXT_PUBLIC_LIVE_URL}" target="_blank">
+        <a class="ok-card-target" href="${process.env.NEXT_PUBLIC_LIVE_URL}" target="_blank">
           <div class="ok-card ok-day-sm">
             <div class="ok-card-date-info">
               ${data.data.bs_date_np}
@@ -504,6 +539,197 @@ const okDaySmall = (data, width) =>
         </a>
       </div>`;
 
+const okMonth = (
+  calendarData,
+  previousData,
+  nextMonthData,
+  todayData,
+  width
+) => {
+  const daysOfWeek =[
+    {
+      nep:"आइतवार",
+      eng:"SUN"
+    },
+    {
+      nep:"सोमवार",
+      eng:"MON"
+    },
+    {
+      nep:"मंगलवार",
+      eng:"TUE"
+    },
+    {
+      nep:"बुधवार",
+      eng:"WED"
+    },
+    {
+      nep:"बिहीवार",
+      eng:"THU"
+    },
+    {
+      nep:"शुक्रवार",
+      eng:"FRI"
+    },
+    {
+      nep:"शनिवार",
+      eng:"SAT"
+    },
+  ]
+
+  const disabledHtml = (data, index) =>
+      `<div 
+          class="ok-month-col ok-disabled-month"
+          key=${index}
+          >
+          <div class="ok-month-col-date">
+            <span>${data.bs_date_np}</span>
+          </div>
+
+          <div class="ok-month-col-left">
+            <span>दशमी</span>
+          </div>
+
+          <div class="ok-month-col-right">
+            <span class="ok-eng-font">
+              ${data.ad_date_en}
+            </span>
+          </div>
+      </div>`;
+
+  const prevArray = getPreviousArray(calendarData, previousData)
+
+  const previousHTML = `${prevArray
+    .map((data, index) => disabledHtml(data, index))
+    .join("")}`;
+
+  const nextArray = getNextArray(calendarData, nextMonthData)
+
+  const nextHTML = `${nextArray
+    .map((data, index) => disabledHtml(data, index))
+    .join("")}`;
+
+  let calendarHTML = `<div class="ok-calendar">
+        <div class="ok-card ok-month">
+
+        <div class="ok-month-header">
+          
+          <div class="ok-month-prev ok-month-jump-between">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+          </div>
+
+          <div class="ok-month-selected">
+            <span>
+            ${calendarData.data[0].bs_month_np}
+            </span>
+
+            <span class="ok-eng-font">
+            ${calendarData.currentMonthsAd[0].slice(0, 3)}
+            <small>/</small>
+            ${calendarData.currentMonthsAd[1].slice(0, 3)}
+            ${" "}
+            ${calendarData.currentMonthsAd[2]}
+            </span>
+          </div>
+
+          <div class="ok-month-next ok-month-jump-between">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg>
+          </div>
+        </div>
+
+        <div class="ok-month-sm-body">
+          ${daysOfWeek
+            .map(
+              (days, index) =>
+                `<div class="ok-month-days" key=${index}>
+                  ${days.nep}
+                  <span>${days.eng}</span>
+                </div>`
+            )
+            .join("")}
+
+          ${previousHTML}
+
+          ${calendarData.data
+            .map(
+              (data, index) =>
+                `<div 
+              class="ok-month-col ok-month-col-click
+              ${
+                data.bs_date_np === todayData.bs_date_np &&
+                data.bs_month_code_en === todayData.bs_month_code_en &&
+                data.bs_year_en === todayData.bs_year_en &&
+                data.day_en === "Saturday"
+                  ? "ok-month-today-holiday"
+                  : data.bs_date_np === todayData.bs_date_np &&
+                    data.bs_month_code_en === todayData.bs_month_code_en &&
+                    data.bs_year_en === todayData.bs_year_en &&
+                    data?.events[0]?.is_public_holiday === true
+                  ? "ok-month-today-holiday"
+                  : data.bs_date_np === todayData.bs_date_np &&
+                    data.bs_month_code_en === todayData.bs_month_code_en &&
+                    data.bs_year_en === todayData.bs_year_en
+                  ? "ok-month-today"
+                  : data.day_en === "Saturday"
+                  ? "ok-month-holiday"
+                  : data?.events[0]?.is_public_holiday === true
+                  ? "ok-month-holiday"
+                  : ""
+              }
+              "
+                key=${index}
+
+                data-bs_date_np="${data.bs_date_np}"
+                data-bs_month_np="${data.bs_month_np}"
+                data-bs_year_np="${data.bs_year_np}"
+                data-day_np="${data.day_np}"
+                data-tithi_title_np="${data?.tithi ? data?.tithi?.tithi_title_np : ""}"
+                data-sunrise_np="${data?.panchanga ? data?.panchanga.sunrise_np : ""}"
+                data-sunset_np="${data?.panchanga ? data?.panchanga.sunset_np : ""}"
+                data-ad_month_en="${data.ad_month_en}"
+                data-ad_date_en="${data.ad_date_en}"
+                data-ad_year_en="${data.ad_year_en}"
+                data-day_en="${data.day_en}"
+                data-ad_full_date_en="${data.ad_full_date_en}"
+                data-events='${JSON.stringify(data.events)}'
+                data-pakshya_np="${data?.panchanga ? data?.panchanga?.pakshya_np : ""}"
+                data-ritu_np="${data?.panchanga ? data?.panchanga?.ritu_np : ""}"
+                data-tithi_end_time_np="${data?.tithi ? data?.tithi?.tithi_end_time_np : ""}"
+                >
+
+                <span class="ok-month-col-top">
+                 श्रावण सङ्क्रान्ति
+                </span>
+
+                <div class="ok-month-col-date">
+                  <span>${data.bs_date_np}</span>
+                  <span class="ok-month-col-event">+1</span>
+                </div>
+
+                <div class="ok-month-col-left">
+                  <span>दशमी</span>
+                </div>
+
+                <div class="ok-month-col-right">
+                  <span class="ok-eng-font">
+                    ${data.ad_date_en}
+                  </span>
+                </div>
+            </div>`
+            )
+            .join("")}
+
+          ${nextHTML}
+        </div>
+      </div>
+    </div>
+
+    ${customPopup()}
+    `;
+
+  return calendarHTML;
+};      
+
 const okMonthSmall = (
   calendarData,
   previousData,
@@ -525,25 +751,13 @@ const okMonthSmall = (
       </span>
       </div>`;
 
-  const dayCode = calendarData.data[0].day_code_en;
-  const dayEn = calendarData.data[0].day_en;
-  const prevDayCode = dayCode - 1;
-
-  let prevArray;
-  if (dayEn === "Sunday") {
-    prevArray = [];
-  } else {
-    prevArray = previousData.data.slice(-prevDayCode);
-  }
+ const prevArray = getPreviousArray(calendarData, previousData)
 
   const previousHTML = `${prevArray
     .map((data, index) => disabledHtml(data, index))
     .join("")}`;
 
-  const lastDayCode =
-    calendarData.data[calendarData.data.length - 1].day_code_en;
-  const nextDayCode = 7 - lastDayCode;
-  const nextArray = nextMonthData.data.slice(0, nextDayCode);
+  const nextArray = getNextArray(calendarData, nextMonthData)
 
   const nextHTML = `${nextArray
     .map((data, index) => disabledHtml(data, index))
@@ -594,7 +808,7 @@ const okMonthSmall = (
             .map(
               (data, index) =>
                 `<div 
-              class="ok-month-sm-col 
+              class="ok-month-sm-col ok-month-col-click
               ${
                 data.bs_date_np === todayData.bs_date_np &&
                 data.bs_month_code_en === todayData.bs_month_code_en &&
@@ -623,18 +837,18 @@ const okMonthSmall = (
                 data-bs_month_np="${data.bs_month_np}"
                 data-bs_year_np="${data.bs_year_np}"
                 data-day_np="${data.day_np}"
-                data-tithi_title_np="${data.tithi?.tithi_title_np}"
-                data-sunrise_np="${data.panchanga.sunrise_np}"
-                data-sunset_np="${data.panchanga.sunset_np}"
+                data-tithi_title_np="${data?.tithi ? data?.tithi?.tithi_title_np : ""}"
+                data-sunrise_np="${data?.panchanga ? data?.panchanga.sunrise_np : ""}"
+                data-sunset_np="${data?.panchanga ? data?.panchanga.sunset_np : ""}"
                 data-ad_month_en="${data.ad_month_en}"
                 data-ad_date_en="${data.ad_date_en}"
                 data-ad_year_en="${data.ad_year_en}"
                 data-day_en="${data.day_en}"
                 data-ad_full_date_en="${data.ad_full_date_en}"
                 data-events='${JSON.stringify(data.events)}'
-                data-pakshya_np="${data.panchanga?.pakshya_np}"
-                data-ritu_np="${data.panchanga?.ritu_np}"
-                data-tithi_end_time_np="${data.tithi?.tithi_end_time_np}"
+                data-pakshya_np="${data?.panchanga ? data?.panchanga?.pakshya_np : ""}"
+                data-ritu_np="${data?.panchanga ? data?.panchanga?.ritu_np : ""}"
+                data-tithi_end_time_np="${data?.tithi ? data?.tithi?.tithi_end_time_np : ""}"
                 >
             ${data.bs_date_np}
 
@@ -786,7 +1000,7 @@ const attachEventListeners = (container, widgetType, data, width) => {
   const prevButton = document.querySelector(".ok-month-prev");
   const nextButton = document.querySelector(".ok-month-next");
 
-  const popButtons = document.querySelectorAll(".ok-month-sm-col");
+  const popButtons = document.querySelectorAll(".ok-month-col-click");
   const closeButton = document.querySelector(".ok-close__popup");
   const closeOverlay = document.querySelector(".ok-overlay");
 
@@ -845,7 +1059,16 @@ const fetchDataAndRender = async (container, widgetType, data, width) => {
   ]);
 
   if (calendarData && previousData && nextMonthData) {
-    if (widgetType === "ok-month-sm") {
+    if (widgetType === "ok-month") {
+      container.innerHTML = okMonth(
+        calendarData,
+        previousData,
+        nextMonthData,
+        data,
+        width
+      );
+      attachEventListeners(container, widgetType, data, width);
+    }else if (widgetType === "ok-month-sm") {
       container.innerHTML = okMonthSmall(
         calendarData,
         previousData,
@@ -904,66 +1127,149 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// --------------
-const path = require('path');
-const webpack = require('webpack');
-const dotenv = require('dotenv');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
+// ----------------
+"use client"
+import React, { useEffect, useState } from 'react'
+// import SuvaSait from '../Offcanvas/Popup/SuvaSait';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useRoot } from '../../../context';
+// import HolidayPopUp from '../Offcanvas/Popup/HolidayPopUp';
+;
 
-// Load environment variables from .env file
-dotenv.config();
+const Panels = () => {
+  const { siteSetting } = useRoot()
+  const [isPopup, setIsPopup] = useState(false);
 
-module.exports = {
-  mode: process.env.NODE_ENV, // or 'development'
-  entry: './public/ok-widgets/index.js',
-  output: {
-    path: path.resolve(__dirname, 'public/dist'),
-    filename: 'okcalendar.min.js',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-          },
-        },
-      },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      },
-    ],
-  },
-  optimization: {
-    minimize: true,
-    minimizer: [new TerserPlugin({
-      terserOptions: {
-        compress: {
-          drop_console: true,
-        },
-      },
-    }),
-    new CssMinimizerPlugin(),
-  ],
-  },
-  devServer: {
-    static: {
-      directory: path.resolve(__dirname, 'public/okcalendar@1.0.0/dist'),
-    },
-    compress: true,
-  },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'okcalendar.min.css',
-    }),
-    new webpack.DefinePlugin({
-      'process.env': JSON.stringify(process.env),
-    }),
-  ],
-};
+  const handleChange = () => {
+    setIsPopup(!isPopup);
+  };
+  const handleClose = () => {
+    setIsPopup(false);
+  };
+
+
+  // Holiday APi
+  const [holidayPopup, setHolidayPopup] = useState(false);
+  const [holidaydata, setHolidaydata] = useState([]);
+
+  const handleHolidayPop = () => {
+    setHolidayPopup(!holidayPopup)
+  }
+  const handleHolidayClose = () => {
+    setHolidayPopup(false);
+  };
+
+  return (
+    <>
+      <div className="ok-quick-access-tools">
+        <div>
+          <Link href="/holiday">
+            {
+              siteSetting?.holiday_card_bg_image ? (
+                <img  width={200} height={200}  src={siteSetting?.holiday_card_bg_image} alt={siteSetting?.holiday_card_title_np || "बिदाहरु"} />
+              ) : (
+                <Image  width={200} height={200} src="/img/holiday-bg.png" alt={siteSetting?.holiday_card_title_np || "बिदाहरु"} />
+              )
+            }
+          </Link>
+          <div className="ok-quick-access-tools-content">
+            {
+              siteSetting?.holiday_igscard_icon ? (
+                <img width={43} height={43} src={siteSetting?.holiday_igscard_icon} alt={siteSetting?.holiday_card_title_np || "बिदाहरु"} />
+              ) : (
+                <Image width={43} height={43} src="/img/holiday-icon.png" alt={siteSetting?.holiday_card_title_np || "बिदाहरु"} />
+              )
+            }
+            <span>{siteSetting?.holiday_card_title_np || "बिदाहरु"}</span>
+          </div>
+        </div>
+        <div>
+          <Link href="/sahit">
+            {
+              siteSetting?.sahit_card_bg_image ? (
+                <img  width={200} height={200}  src={siteSetting?.sahit_card_bg_image} alt={siteSetting?.sahit_card_title_np || "साइत"} />
+              ) : (
+                <Image width={200} height={200} src="/img/sait-bg.png" alt={siteSetting?.sahit_card_title_np || "साइत"} />
+              )
+            }
+
+          </Link>
+          <div className="ok-quick-access-tools-content">
+            {
+              siteSetting?.sahit_card_icon ? (
+                <img width={43} height={43} src={siteSetting?.sahit_card_icon} alt={siteSetting?.sahit_card_title_np || "साइत"} />
+              ) : (
+                <Image width={43} height={43} src="/img/sait-icon.png" alt={siteSetting?.sahit_card_title_np || "साइत"} />
+              )
+            }
+            <span>{siteSetting?.sahit_card_title_np || "साइत"}</span>
+          </div>
+        </div>
+        <div>
+          <Link href="/panchanga">
+            {
+              siteSetting?.panchanga_card_bg_image ? (
+                <img  width={200} height={200}  src={siteSetting?.panchanga_card_bg_image} alt={siteSetting?.panchanga_card_title_np || "पञ्चाङ्ग"} />
+              ) : (
+                <Image width={200} height={200} src="/img/panchanga-bg.png" alt={siteSetting?.panchanga_card_title_np || "पञ्चाङ्ग"} />
+
+              )
+            }
+          </Link>
+          <div className="ok-quick-access-tools-content">
+            {
+              siteSetting?.panchanga_card_icon ? (
+                <img width={43} height={43} src={siteSetting?.panchanga_card_icon} alt={siteSetting?.panchanga_card_title_np || "पञ्चाङ्ग"} />
+              ) : (
+                <Image width={43} height={43} src="/img/panchanga-icon.png" alt={siteSetting?.panchanga_card_title_np || "पञ्चाङ्ग"} />
+
+              )
+            }
+            <span>{siteSetting?.panchanga_card_title_np || "पञ्चाङ्ग"}</span>
+          </div>
+        </div>
+        <div>
+          <Link href="/rashifal">
+            {
+              siteSetting?.rashifal_card_bg_image ? (
+                <img width={400} height={124} src={siteSetting?.rashifal_card_bg_image} alt={siteSetting?.rashifal_card_title_np || "राशिफल"} />
+              ) : (
+                <Image width={400} height={124} src="/img/rashifal-bg.png" alt={siteSetting?.rashifal_card_title_np || "राशिफल"} />
+              )
+            }
+          </Link>
+          <div className="ok-quick-access-tools-content">
+            <div>
+              <div className='ok-panel-rashifal-icon'>
+                {
+                  siteSetting?.rashifal_card_icon ? (
+                    <img width={43} height={43} src={siteSetting?.rashifal_card_icon} alt={siteSetting?.rashifal_card_title_np || "राशिफल"} />
+                  ) : (
+                    <Image width={43} height={43} src="/img/rashifal-icon.png" alt={siteSetting?.rashifal_card_title_np || "राशिफल"} />
+                  )
+                }
+              </div>
+              <h3>{siteSetting?.rashifal_card_title_np || "राशिफल"}
+                <span>
+                  {
+                    siteSetting?.jyotish_name_np || "ज्यो.प. डा.उत्तम उपाध्याय न्यौपाने"
+                  }
+                </span>
+              </h3>
+            </div>
+            <div>
+              <Image width={40} height={40} src="/img/icon-right-white.png" alt="" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* {isPopup && <SuvaSait saitLoading={saitLoading} saitData={saitData} saitid={saitid} setSaitId={setSaitId} saitList={saitList} onClose={handleClose} />} */}
+      {/* {holidayPopup && <HolidayPopUp onClose={handleHolidayClose} data={holidaydata} />} */}
+    </>
+  )
+}
+
+export default Panels;

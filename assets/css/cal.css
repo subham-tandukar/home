@@ -1,42 +1,19 @@
-.activeStyle {
-  display: flex !important;
-}
-.inactiveStyle {
-  display: none !important;
-}
-
-.ok-markup-head{
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
+.ok-main-loader{
+  height: calc(100vh - 150px);
   align-items: center;
-  margin-bottom: 10px;
 }
-.ok-widget-comment {
-	color: #969896;
-  margin-bottom: 5px;
-  display: block;
+.ok-site-header .ok-site-logo img {
+  height: auto;
 }
-
-.ok-markup-wrapper:not(:last-child){
-  margin-bottom: 30px;
+.ok-foot-logo > a > img{
+  height: auto;
 }
 
-.ok-copy-code:hover + code{
-  background: #2e75ff;
-  color: #fff;
+div[data-widget="ok-month"],div[data-widget="ok-month"] .ok-calendar{
+  width: 100%;
 }
-.ok-copy-code:hover + code span{
-  color: #fff;
-}
-.ok-widget-box .ok-copied {
-	pointer-events: none;
-}
-.ok-widget-box .ok-copy-code > div {
-	padding-right: 0;
-}
+
+/* --------------------- */
 /* okcalendar.css */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&family=Khand:wght@300;400;500;600;700&family=Mukta:wght@300;400;500;600;700;800&display=swap");
 
@@ -74,13 +51,16 @@ body.ok-popup-open {
   margin: 0;
   padding: 0;
   line-height: 1;
-  width: max-content;
 }
 .ok-calendar a,
 .ok-calendar a:hover {
   text-decoration: none;
   color: inherit;
   font-family: "Mukta", sans-serif;
+}
+.ok-card-target{
+  display: block;
+  width: max-content;
 }
 .ok-card {
   background-color: white;
@@ -225,7 +205,6 @@ body.ok-popup-open {
   font-weight: 600;
   margin: 0;
   margin-bottom: 2px;
-  color: #fd2929;
   font-family: "Mukta", sans-serif;
 }
 .ok-card-info .ok-card-tithi {
@@ -265,6 +244,133 @@ body.ok-popup-open {
 }
 
 /* Ok Calendar Day Small Ends */
+
+/* Ok Calendar Month Starts */
+.ok-month{
+  padding: 0;
+}
+.ok-month-header{
+  padding: 20px 10px;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.ok-month-selected{
+  display: flex;
+  align-items: center;
+}
+
+.ok-month-selected span {
+	font-size: 16px;
+  color: #4b4b4b;
+  font-weight: 700;
+	font-family: "Mukta", sans-serif;
+}
+.ok-month-selected span.ok-eng-font{
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-left: 5px;
+}
+.ok-month-col, .ok-month-days {
+	font-family: "Mukta",sans-serif;
+	font-weight: 700;
+	border-top: solid 1px #e0e8f0;
+	border-right: solid 1px #e0e8f0;
+	text-align: center;
+}
+.ok-month-col{
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  height: 120px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 38px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+.ok-month-col:hover {
+	background-color: #f7f7fa;
+}
+.ok-month-days {
+	font-size: 14px;
+	font-weight: 600;
+	padding: 10px;
+	color: #333333;
+}
+.ok-month-days > span {
+	font-family: "Inter", sans-serif;
+	display: block;
+	font-size: 12px;
+	margin-top: 5px;
+	color: rgba(51, 51, 51, 0.4784313725);
+}
+.ok-month-col-top {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	font-size: 14px;
+	font-weight: 500;
+	padding: 8px;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	display: -webkit-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding-bottom: 0;
+	line-height: 17px;
+}
+.ok-month-col-date {
+	cursor: pointer;
+	text-align: center;
+	font-size: 38px;
+	font-weight: 500;
+}
+.ok-month-col-event{
+	display: inline-block;
+	background-color: #f1f1f1;
+	color: inherit;
+	line-height: 18px;
+	padding: 0 6px;
+	border-right: 4px;
+	font-size: 12px;
+	position: absolute;
+	right: 10px;
+	bottom: 25px;
+	border-radius: 4px;
+	cursor: pointer;
+	color: #000;
+}
+.ok-month-col-left {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	padding: 5px;
+	font-size: 12px;
+	font-weight: 500;
+}
+.ok-month-col-right {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	padding: 5px;
+	font-size: 12px;
+	font-weight: 500;
+	left: auto;
+	right: 0;
+}
+.ok-month-col-right > span {
+	font-size: 12px;
+	font-weight: 500;
+}
+/* Ok Calendar Month Starts */
+
 
 /* Ok Calendar Month Small Starts */
 .ok-month-sm-header {
@@ -364,11 +470,11 @@ body.ok-popup-open {
 }
 
 .ok-month-holiday {
-  color: #ff6b6b;
+  color: #fd2929;
   font-family: "Mukta", sans-serif;
 }
 .ok-month-holiday .ok-month-sm-event {
-  background: #ff6b6b;
+  background: #fd2929;
     font-family: "Mukta", sans-serif;
 }
 .ok-month-today-holiday {
@@ -452,7 +558,7 @@ body.ok-popup-open {
   color: #fd2929;
 }
 .ok-month-event .ok-month-event-list ul li.danger::before {
-  background: #ff6b6b;
+  background: #fd2929;
 }
 .ok-month-panchanga {
   padding-top: 20px;
@@ -579,12 +685,12 @@ body.ok-popup-open {
 .ok-custom__popup.active {
   opacity: 1;
   visibility: visible;
-  animation: popup 0.3s linear;
-  -webkit-animation: popup 0.3s linear;
+  animation: okpopup 0.3s linear;
+  -webkit-animation: okpopup 0.3s linear;
 }
 .ok-custom__popup.active .ok-custom__popup__model {
-  animation: popupContent 0.3s linear;
-  -webkit-animation: popupContent 0.3s linear;
+  animation: okpopupContent 0.3s linear;
+  -webkit-animation: okpopupContent 0.3s linear;
 }
 .ok-custom__popup.active .ok-custom__popup__model label {
   margin-bottom: 5px;
@@ -596,7 +702,7 @@ body.ok-popup-open {
   transform: translate(-50%, 0);
 }
 
-@keyframes popup {
+@keyframes okpopup {
   0% {
     opacity: 0;
     visibility: hidden;
@@ -606,7 +712,7 @@ body.ok-popup-open {
     visibility: visible;
   }
 }
-@keyframes popupContent {
+@keyframes okpopupContent {
   0% {
     top: 40%;
     opacity: 0;
@@ -632,10 +738,12 @@ body.ok-popup-open {
   align-items: flex-start;
   grid-template-columns: 45px 1fr;
   width: 100%;
-  padding: 10px;
   border-radius: 8px;
   position: relative;
   background: #fff;
+}
+.ok-holidays-wrapper > div{
+  margin: 10px;
 }
 .ok-holidays-wrapper:not(:last-child) {
   margin-bottom: 5px;
@@ -663,6 +771,9 @@ body.ok-popup-open {
 .ok-card-holiday {
   font-family: "Mukta", sans-serif;
   padding-right: 80px;
+}
+.ok-card-holiday p{
+  color: #fd2929;
 }
 .ok-holidays h2 {
   margin: 0;
