@@ -14,68 +14,144 @@ headerScroll = () => {
 };
 
 menuOffcanvas = () => {
-  // for fullscreen menu
   $(".hamburger-toggle").on("click", function (e) {
     e.preventDefault();
-    $(".fullscreen__menu").addClass("show__menu").removeClass("hide__menu");
-    $("html").addClass("toggleOverflow");
-  });
-  $(".close__menu").on("click", function (e) {
-    $(".fullscreen__menu").addClass("hide__menu").removeClass("show__menu");
-    $("html").removeClass("toggleOverflow");
+    $(".offcanvas").addClass("show");
+    $(".offcanvas__bar").addClass("showbar");
+    $("html").css("overflow", "hidden");
   });
 
+  $(".offcanvas__bar").on("click", function (e) {
+    var container = $(".offcanvas__sidebar");
+
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+      $(".offcanvas").removeClass("show");
+      $(".offcanvas__bar").removeClass("showbar");
+      $("html").css("overflow", "visible");
+    }
+  });
+
+  $(
+    "#primary-menu1 > li.menu-item-has-children, #primary-menu1 > li.menu-item-has-children ul li.menu-item-has-children"
+  ).append('<span><i class="fa-solid fa-chevron-right"></i></span>');
+  $(document).on(
+    "click",
+    "#primary-menu1 > li.menu-item-has-children > a",
+    function (event) {
+      event.preventDefault();
+      const $this = $(this),
+        parent = $this.parent("li"),
+        accordionBody = $this.parent("li").children("ul"),
+        siblingItem = parent.siblings("li"),
+        siblingBody = siblingItem.find("ul");
+
+      if (parent.hasClass("active")) {
+        parent.removeClass("active");
+        parent.children("a").removeClass("show-active");
+        accordionBody.slideUp(500);
+      } else {
+        parent.addClass("active");
+        parent.children("a").addClass("show-active");
+        accordionBody.slideDown(500);
+        siblingItem.removeClass("active");
+        siblingItem.children("a").removeClass("show-active");
+        siblingBody.slideUp();
+      }
+    }
+  );
 };
 
-menuCarousel = () => {
-  var mySlider = $(".menu__carousel .owl-carousel");
-  mySlider.owlCarousel({
+bannerCarousel = () => {
+  $(".banner__section .owl-carousel").owlCarousel({
     items: 1,
     loop: true,
-    dots: true,
+    dots: false,
+    smartSpeed: 2000,
     nav: true,
-    autoHeight: true,
-    smartSpeed: 1000,
-    margin: 30,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    mouseDrag: false,
+    animateOut: "fadeOut",
     navText: [
-      "<div class='prev-slide custom__nav'></div>",
-      "<div class='next-slide custom__nav'></div>",
+      "<div class='prev-slide custom__nav'><span></span></div>",
+      "<div class='next-slide custom__nav'><span></span></div>",
     ],
     responsive: {
       0: {
         items: 1,
-        margin: 15,
+        mouseDrag: false,
       },
       640: {
-        items: 2,
-        margin: 15,
-      },
-      960: {
-        items: 3,
-        margin: 15,
-      },
-      1200: {
-        items: 4,
-        margin: 15,
+        items: 1,
+        mouseDrag: false,
       },
     },
   });
 };
 
-testimonialCarousel = () => {
-  var mySlider = $(".testimonial__carousel .owl-carousel");
+eventCarousel = () => {
+  var mySlider = $(".event__carousel .owl-carousel");
   mySlider.owlCarousel({
     items: 1,
-    loop: false,
-    dots: false,
-    nav: true,
+    loop: true,
+    dots: true,
+    nav: false,
     autoHeight: true,
     smartSpeed: 1000,
-    margin: 40,
-    navText: [
-      "<div class='prev-slide custom__nav'></div>",
-      "<div class='next-slide custom__nav'></div>",
-    ],
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
+    margin: 30,
+    responsive: {
+      0: {
+        items: 1.25,
+        margin: 15,
+      },
+
+      960: {
+        items: 1.45,
+        margin: 30,
+      },
+    },
+  });
+};
+
+parallaxEffect = () => {
+  $(window).scroll(function () {
+    var scrollY = $(this).scrollTop();
+    var windowHeight = $(window).height();
+
+    $(".parallax__wrapper").each(function () {
+      var elementTop = $(this).offset().top;
+      var elementHeight = $(this).height();
+
+      // Calculate the center point of the element relative to the viewport
+      var elementCenter = elementTop + elementHeight / 2;
+      var viewportCenter = scrollY + windowHeight / 1.5;
+
+      // // Calculate progress based on how close the center of the element is to the center of the viewport
+      var progress = ((viewportCenter - elementCenter) / windowHeight) * 2;
+      var moveImgDistance = progress * 50;
+
+      // Transform image based on the move distance
+      $(this).find("img").css("transform", `translateY(${moveImgDistance}px)`);
+
+      if (progress <= 0) {
+        // Adjust progress to move from -1 to 1 as the element's center approaches the viewport's center
+        var moveTxtDistance = (1 - Math.abs(progress)) * 50;
+
+        // Apply the calculated move distance for left and right
+        $(this)
+          .find(".parallax__txt")
+          .css("left", moveTxtDistance + "%");
+        $(this)
+          .find(".parallax__txt span")
+          .css("right", moveTxtDistance * 2 + "%");
+      } else {
+        $(this).find(".parallax__txt").css("left", "50%");
+        $(this).find(".parallax__txt span").css("right", "100%");
+      }
+    });
   });
 };
 
@@ -83,20 +159,8 @@ scrollAnimation = () => {
   let options = {
     threshold: 0.9,
   };
-  let imgoptions = {
-    threshold: 0.5,
-  };
 
   const animateHeading = $(".animate__heading");
-  const animateImg = $(".animate__img");
-  const footer = document.querySelector(".footer__contact");
-
-  let footerobserver = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting === true) {
-      footer.classList.add("visible");
-    }
-  }, options);
-  footer && footerobserver.observe(footer);
 
   // For animateHeading Loop through each heading --------------
   animateHeading.each(function (index) {
@@ -114,29 +178,13 @@ scrollAnimation = () => {
     // Observe the current .step__grid
     headingObserver.observe($(this).get(0)); // Get the first element from the jQuery collection
   });
-
-  // For animateImg Loop through each img --------------
-  animateImg.each(function (index) {
-    let imgObserver = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting === true) {
-        // Add class to the current .step__grid
-        $(this).addClass("visible");
-      }
-      // else {
-      //   // Remove class from the current .step__grid
-      //   $(this).removeClass("visible");
-      // }
-    }, imgoptions);
-
-    // Observe the current .step__grid
-    imgObserver.observe($(this).get(0)); // Get the first element from the jQuery collection
-  });
 };
 
 jQuery(document).ready(function ($) {
   headerScroll();
   menuOffcanvas();
-  menuCarousel();
-  testimonialCarousel();
+  bannerCarousel();
+  eventCarousel();
+  parallaxEffect();
   scrollAnimation();
 });
