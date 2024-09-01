@@ -1797,11 +1797,11 @@ input[type="submit"]:hover {
 }
 
 /*  */
-.parallax__wrapper{
+.parallax__wrapper {
   position: relative;
   overflow: hidden;
 }
-.parallax__img{
+.parallax__img {
   overflow: hidden;
 }
 
@@ -2057,4 +2057,89 @@ input[type="submit"]:hover {
 }
 .site-footer .social__icons a {
   font-size: 20px;
+}
+
+.animate__yoga {
+  -webkit-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  -webkit-transform-origin: bottom;
+  -ms-transform-origin: bottom;
+  transform-origin: bottom;
+  -webkit-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+  opacity: 0;
+}
+
+#yoga_7 {
+  -webkit-transition-delay: 0.2s;
+  -o-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+  -webkit-transform: rotate(81deg);
+  -ms-transform: rotate(81deg);
+  transform: rotate(81deg);
+}
+#yoga_6 {
+  -webkit-transition-delay: 0.5s;
+  -o-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+  -webkit-transform: rotate(54deg);
+  -ms-transform: rotate(54deg);
+  transform: rotate(54deg);
+}
+#yoga_5 {
+  -webkit-transition-delay: 0.7s;
+  -o-transition-delay: 0.7s;
+  transition-delay: 0.7s;
+  -webkit-transform: rotate(29deg);
+  -ms-transform: rotate(29deg);
+  transform: rotate(29deg);
+}
+#yoga_4{
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+#yoga_3{
+  -webkit-transition-delay: 0.7s;
+  -o-transition-delay: 0.7s;
+  transition-delay: 0.7s;
+  -webkit-transform: rotate(-29deg);
+  -ms-transform: rotate(-29deg);
+  transform: rotate(-29deg);
+}
+#yoga_2 {
+  -webkit-transition-delay: 0.5s;
+  -o-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+  -webkit-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  transform: rotate(20deg);
+}
+#yoga_1 {
+  -webkit-transition-delay: 0.2s;
+  -o-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+  -webkit-transform: rotate(-20deg);
+  -ms-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+}
+.youth__empowerment.visible .animate__yoga {
+  -webkit-transform: rotate(0deg) !important;
+  -ms-transform: rotate(0deg) !important;
+  transform: rotate(0deg) !important;
+  opacity: 1;
+}
+.youth__empowerment.visible #yoga_1{
+  opacity: 0.4;
+}
+.youth__empowerment.visible #yoga_2{
+  opacity: 0.2;
+}
+.youth__empowerment.visible #leaf_1{
+  opacity: 0.05;
+}
+.youth__empowerment.visible #leaf_2{
+  opacity: 0.05;
 }

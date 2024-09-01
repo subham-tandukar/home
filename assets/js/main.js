@@ -160,6 +160,10 @@ scrollAnimation = () => {
     threshold: 0.9,
   };
 
+  let options2 = {
+    threshold: 0.5,
+  };
+
   const animateHeading = $(".animate__heading");
 
   // For animateHeading Loop through each heading --------------
@@ -178,6 +182,17 @@ scrollAnimation = () => {
     // Observe the current .step__grid
     headingObserver.observe($(this).get(0)); // Get the first element from the jQuery collection
   });
+
+  const youthEmpowerment = document.querySelector(".youth__empowerment");
+  let youthObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting === true) {
+      youthEmpowerment.classList.add("visible");
+    }
+    //  else {
+    //   youthEmpowerment.classList.remove("visible");
+    // }
+  }, options2);
+  youthEmpowerment && youthObserver.observe(youthEmpowerment);
 };
 
 jQuery(document).ready(function ($) {
