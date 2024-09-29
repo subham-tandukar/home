@@ -1,5 +1,9 @@
 var $ = jQuery;
 
+Fancybox.bind("[data-fancybox]", {
+  // Custom options
+});
+
 headerScroll = () => {
   $(window).scroll(function () {
     var sticky = $(".site-header"),
@@ -14,49 +18,15 @@ headerScroll = () => {
 };
 
 menuOffcanvas = () => {
-  $(".hamburger-toggle").on("click", function (e) {
-    e.preventDefault();
-    $(".offcanvas").addClass("show");
-    $(".offcanvas__bar").addClass("showbar");
-    $("html").css("overflow", "hidden");
-  });
-
-  $(".offcanvas__bar").on("click", function (e) {
-    var container = $(".offcanvas__sidebar");
-
-    if (!container.is(e.target) && container.has(e.target).length === 0) {
-      $(".offcanvas").removeClass("show");
-      $(".offcanvas__bar").removeClass("showbar");
-      $("html").css("overflow", "visible");
-    }
-  });
-
   $(
-    "#primary-menu1 > li.menu-item-has-children, #primary-menu1 > li.menu-item-has-children ul li.menu-item-has-children"
-  ).append('<span><i class="fa-solid fa-chevron-right"></i></span>');
-  $(document).on(
-    "click",
-    "#primary-menu1 > li.menu-item-has-children > a",
-    function (event) {
-      event.preventDefault();
-      const $this = $(this),
-        parent = $this.parent("li"),
-        accordionBody = $this.parent("li").children("ul"),
-        siblingItem = parent.siblings("li"),
-        siblingBody = siblingItem.find("ul");
+    "#offcanvas-overlay #primary-menu1 > li.menu-item-has-children, #offcanvas-overlay #primary-menu1 > li.menu-item-has-children ul li.menu-item-has-children"
+  ).append('<span><i class="fa-solid fa-caret-down"></i></span>');
 
-      if (parent.hasClass("active")) {
-        parent.removeClass("active");
-        parent.children("a").removeClass("show-active");
-        accordionBody.slideUp(500);
-      } else {
-        parent.addClass("active");
-        parent.children("a").addClass("show-active");
-        accordionBody.slideDown(500);
-        siblingItem.removeClass("active");
-        siblingItem.children("a").removeClass("show-active");
-        siblingBody.slideUp();
-      }
+  $("#offcanvas-overlay #primary-menu1 > li.menu-item-has-children span").click(
+    function (e) {
+      $(this).parent("li").children("ul").slideToggle();
+      $(this).parent("li").children("ul").toggleClass("show");
+      $(this).parent("li").children("a").toggleClass("show-active");
     }
   );
 };
@@ -89,69 +59,157 @@ bannerCarousel = () => {
   });
 };
 
-eventCarousel = () => {
-  var mySlider = $(".event__carousel .owl-carousel");
-  mySlider.owlCarousel({
+partnerCarousel = () => {
+  $(".partner__section .owl-carousel").owlCarousel({
     items: 1,
-    loop: true,
-    dots: true,
-    nav: false,
-    autoHeight: true,
-    smartSpeed: 1000,
-    autoplay: true,
-    autoplayTimeout: 5000,
-    autoplayHoverPause: true,
+    loop: false,
     margin: 30,
+    dots: false,
+    smartSpeed: 1000,
+    nav: false,
+    // autoplay: true,
+    // autoplayTimeout: 5000,
     responsive: {
       0: {
-        items: 1.25,
-        margin: 15,
+        items: 3,
       },
-
+      640: {
+        items: 4,
+      },
+      768: {
+        items: 5,
+      },
       960: {
-        items: 1.45,
-        margin: 30,
+        items: 6,
       },
+      1200: {
+        items: 7,
+      },
+    
     },
   });
 };
 
-parallaxEffect = () => {
-  $(window).scroll(function () {
-    var scrollY = $(this).scrollTop();
-    var windowHeight = $(window).height();
+numberIncrement = () => {
+  let options = {
+    threshold: 0.9,
+  };
 
-    $(".parallax__wrapper").each(function () {
-      var elementTop = $(this).offset().top;
-      var elementHeight = $(this).height();
+  const infoSection = $(".info__section");
+  const infoCount = $(".info__wrapper span");
 
-      // Calculate the center point of the element relative to the viewport
-      var elementCenter = elementTop + elementHeight / 2;
-      var viewportCenter = scrollY + windowHeight / 1.5;
-
-      // // Calculate progress based on how close the center of the element is to the center of the viewport
-      var progress = ((viewportCenter - elementCenter) / windowHeight) * 2;
-      var moveImgDistance = progress * 50;
-
-      // Transform image based on the move distance
-      $(this).find("img").css("transform", `translateY(${moveImgDistance}px)`);
-
-      if (progress <= 0) {
-        // Adjust progress to move from -1 to 1 as the element's center approaches the viewport's center
-        var moveTxtDistance = (1 - Math.abs(progress)) * 50;
-
-        // Apply the calculated move distance for left and right
-        $(this)
-          .find(".parallax__txt")
-          .css("left", moveTxtDistance + "%");
-        $(this)
-          .find(".parallax__txt span")
-          .css("right", moveTxtDistance * 2 + "%");
-      } else {
-        $(this).find(".parallax__txt").css("left", "50%");
-        $(this).find(".parallax__txt span").css("right", "100%");
+  infoSection.each(function (index) {
+    let sectionObserver = new IntersectionObserver((entries, observer) => {
+      if (entries[0].isIntersecting === true) {
+        infoCounter();
+        observer.disconnect(); // Stop observing once the animation starts
       }
+    }, options);
+
+    sectionObserver.observe($(this).get(0));
+  });
+
+  const infoCounter = () => {
+    infoCount.each(function () {
+      const $this = $(this);
+      const finalValue = parseInt($this.text());
+      const incrementTime = 2000; // total time to increment (in milliseconds)
+      const intervalTime = 20; // interval time for each increment (in milliseconds)
+      const incrementValue = Math.ceil(
+        finalValue / (incrementTime / intervalTime)
+      );
+
+      let currentValue = 0;
+      $this.text(currentValue);
+
+      const interval = setInterval(() => {
+        currentValue += incrementValue;
+        if (currentValue < finalValue) {
+          $this.text(currentValue);
+        } else {
+          $this.text(finalValue); // ensure the final value is exact
+          clearInterval(interval);
+        }
+      }, intervalTime);
     });
+  };
+};
+
+cardParallax = () => {
+  // For featured Section
+  const featuredparent = ".featured__section .parallax__card";
+  const featuredHead = ".featured__section .parallax__head";
+  const allChild = $(`${featuredparent} > div`);
+  const firstChild = $(`${featuredparent} > div:first-child`);
+  const secondChild = $(`${featuredparent} > div:nth-child(2)`);
+  const thirdChild = $(`${featuredparent} > div:nth-child(3)`);
+
+  // For event section
+  const eventparent = ".events__section .parallax__card";
+  const eventHead = ".events__section .parallax__head";
+  const allChild1 = $(`${eventparent} > div`);
+  const secondChild1 = $(`${eventparent} > div:nth-child(2)`);
+  const thirdChild1 = $(`${eventparent} > div:nth-child(3)`);
+  const lastChild1 = $(`${eventparent} > div:nth-child(4)`);
+
+  function animate(target, startY, easingVal) {
+    return `
+    target: .${target}; start: 50%; end: 100%; y: ${startY},0;  end: 50vh + 50%; easing: ${easingVal}
+  `;
+  }
+
+  function updateParallax() {
+    if ($(window).width() > 1200) {
+      // For featured Section
+      $(featuredHead).attr(
+        "data-uk-parallax",
+        animate("featured__section", "300", "-1")
+      );
+      $(firstChild).attr(
+        "data-uk-parallax",
+        animate("featured__section", "400", "0")
+      );
+      $(secondChild).attr(
+        "data-uk-parallax",
+        animate("featured__section", "300", "-1")
+      );
+      $(thirdChild).attr(
+        "data-uk-parallax",
+        animate("featured__section", "200", "-2")
+      );
+
+      // For event section
+      $(eventHead).attr(
+        "data-uk-parallax",
+        animate("events__section", "100", "-1")
+      );
+      $(secondChild1).attr(
+        "data-uk-parallax",
+        animate("events__section", "200", "-2")
+      );
+      $(thirdChild1).attr(
+        "data-uk-parallax",
+        animate("events__section", "300", "-1")
+      );
+      $(lastChild1).attr(
+        "data-uk-parallax",
+        animate("events__section", "400", "0")
+      );
+    } else {
+      // For featured Section
+      $(allChild).removeAttr("data-uk-parallax");
+      $(featuredHead).removeAttr("data-uk-parallax");
+
+      // For event section
+      $(allChild1).removeAttr("data-uk-parallax");
+      $(eventHead).removeAttr("data-uk-parallax");
+    }
+  }
+
+  updateParallax(); // Initial call to set parallax based on window width
+
+  $(window).resize(function () {
+    updateParallax(); // Call the function when the window is resized
   });
 };
 
@@ -199,7 +257,8 @@ jQuery(document).ready(function ($) {
   headerScroll();
   menuOffcanvas();
   bannerCarousel();
-  eventCarousel();
-  parallaxEffect();
+  partnerCarousel();
+  numberIncrement();
+  cardParallax();
   scrollAnimation();
 });
