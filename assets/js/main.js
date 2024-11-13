@@ -1,215 +1,120 @@
 var $ = jQuery;
 
-Fancybox.bind("[data-fancybox]", {
-  // Custom options
-});
-
 headerScroll = () => {
   $(window).scroll(function () {
-    var sticky = $(".site-header"),
+    var sticky = $(".site-header, .sticky__blog__head"),
+      fixedMobile = $(".fixed__mobile"),
       scroll = $(window).scrollTop();
 
     if (scroll >= 300) {
       sticky.addClass("fixed");
+      fixedMobile.addClass("visible");
     } else {
       sticky.removeClass("fixed");
+      fixedMobile.removeClass("visible");
     }
   });
 };
 
 menuOffcanvas = () => {
-  $(
-    "#offcanvas-overlay #primary-menu1 > li.menu-item-has-children, #offcanvas-overlay #primary-menu1 > li.menu-item-has-children ul li.menu-item-has-children"
-  ).append('<span><i class="fa-solid fa-caret-down"></i></span>');
+  $(".ham-menu").on("click", function (e) {
+    e.preventDefault();
+    $(".offcanvas").addClass("show");
+    $(".offcanvas__bar").addClass("showbar");
+  });
 
-  $("#offcanvas-overlay #primary-menu1 > li.menu-item-has-children span").click(
-    function (e) {
-      $(this).parent("li").children("ul").slideToggle();
+  $(".offcanvas__bar").on("click", function (e) {
+    var container = $(".offcanvas__sidebar");
+
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+      $(".offcanvas").removeClass("show");
+      $(".offcanvas__bar").removeClass("showbar");
+    }
+  });
+
+  setTimeout(() => {
+    $(".mega-menu-list").append(
+      '<span class="menu-list-icon"><i class="fa-solid fa-chevron-down"></i></span>'
+    );
+  }, 500);
+
+  $(
+    ".menu__title, #primary-menu1 > li.menu-item-has-children, #primary-menu1 > li.menu-item-has-children ul li.menu-item-has-children"
+  ).append('<span><i class="fa-solid fa-chevron-down"></i></span>');
+  $(document).on(
+    "click",
+    "#primary-menu1 > li.menu-item-has-children span",
+    function (event) {
+      $(this).parent("li").children("ul, .mega__menu").slideToggle();
       $(this).parent("li").children("ul").toggleClass("show");
       $(this).parent("li").children("a").toggleClass("show-active");
+      $(this)
+        .parent(".menu__title")
+        .parent("div")
+        .children(".menu__list ")
+        .slideToggle();
+      $(this).parent(".menu__title").children("a").toggleClass("show-active");
     }
   );
 };
 
-bannerCarousel = () => {
-  $(".banner__section .owl-carousel").owlCarousel({
-    items: 1,
+partnerCarousel = () => {
+  var partner = $(".partner__carousel .owl-carousel");
+  partner.owlCarousel({
+    items: 2,
+    nav: false,
     loop: true,
-    dots: false,
-    smartSpeed: 2000,
-    nav: true,
+    dots: true,
+    smartSpeed: 1000,
+    margin: 20,
     autoplay: true,
     autoplayTimeout: 5000,
-    mouseDrag: false,
-    animateOut: "fadeOut",
-    navText: [
-      "<div class='prev-slide custom__nav'><span></span></div>",
-      "<div class='next-slide custom__nav'><span></span></div>",
-    ],
+    autoplayHoverPause: true,
     responsive: {
       0: {
-        items: 1,
-        mouseDrag: false,
+        items: 2,
       },
       640: {
-        items: 1,
-        mouseDrag: false,
-      },
-    },
-  });
-};
-
-partnerCarousel = () => {
-  $(".partner__section .owl-carousel").owlCarousel({
-    items: 1,
-    loop: false,
-    margin: 30,
-    dots: false,
-    smartSpeed: 1000,
-    nav: false,
-    // autoplay: true,
-    // autoplayTimeout: 5000,
-    responsive: {
-      0: {
         items: 3,
       },
-      640: {
+      960: {
         items: 4,
       },
-      768: {
+      1200: {
         items: 5,
       },
-      960: {
+      1400: {
         items: 6,
       },
-      1200: {
-        items: 7,
-      },
-    
     },
   });
 };
 
-numberIncrement = () => {
-  let options = {
-    threshold: 0.9,
-  };
+scrollDown = () => {
+  const bannerHeight = $(".banner__section").height();
+  const scrollDown = $(".scroll__down");
+  // Trigger on window scroll
+  $(window).scroll(function () {
+    const scrollPosition = $(this).scrollTop();
 
-  const infoSection = $(".info__section");
-  const infoCount = $(".info__wrapper span");
+    // Calculate how far we have scrolled within the banner
+    if (scrollPosition < bannerHeight) {
+      const progress = scrollPosition / bannerHeight; // Value from 0 to 1
+      const opacity = 1 - progress; // Opacity decreases as progress increases
+      const translateY = progress * 20; // Adjust translateY value as desired
 
-  infoSection.each(function (index) {
-    let sectionObserver = new IntersectionObserver((entries, observer) => {
-      if (entries[0].isIntersecting === true) {
-        infoCounter();
-        observer.disconnect(); // Stop observing once the animation starts
-      }
-    }, options);
-
-    sectionObserver.observe($(this).get(0));
-  });
-
-  const infoCounter = () => {
-    infoCount.each(function () {
-      const $this = $(this);
-      const finalValue = parseInt($this.text());
-      const incrementTime = 2000; // total time to increment (in milliseconds)
-      const intervalTime = 20; // interval time for each increment (in milliseconds)
-      const incrementValue = Math.ceil(
-        finalValue / (incrementTime / intervalTime)
-      );
-
-      let currentValue = 0;
-      $this.text(currentValue);
-
-      const interval = setInterval(() => {
-        currentValue += incrementValue;
-        if (currentValue < finalValue) {
-          $this.text(currentValue);
-        } else {
-          $this.text(finalValue); // ensure the final value is exact
-          clearInterval(interval);
-        }
-      }, intervalTime);
-    });
-  };
-};
-
-cardParallax = () => {
-  // For featured Section
-  const featuredparent = ".featured__section .parallax__card";
-  const featuredHead = ".featured__section .parallax__head";
-  const allChild = $(`${featuredparent} > div`);
-  const firstChild = $(`${featuredparent} > div:first-child`);
-  const secondChild = $(`${featuredparent} > div:nth-child(2)`);
-  const thirdChild = $(`${featuredparent} > div:nth-child(3)`);
-
-  // For event section
-  const eventparent = ".events__section .parallax__card";
-  const eventHead = ".events__section .parallax__head";
-  const allChild1 = $(`${eventparent} > div`);
-  const secondChild1 = $(`${eventparent} > div:nth-child(2)`);
-  const thirdChild1 = $(`${eventparent} > div:nth-child(3)`);
-  const lastChild1 = $(`${eventparent} > div:nth-child(4)`);
-
-  function animate(target, startY, easingVal) {
-    return `
-    target: .${target}; start: 50%; end: 100%; y: ${startY},0;  end: 50vh + 50%; easing: ${easingVal}
-  `;
-  }
-
-  function updateParallax() {
-    if ($(window).width() > 1200) {
-      // For featured Section
-      $(featuredHead).attr(
-        "data-uk-parallax",
-        animate("featured__section", "300", "-1")
-      );
-      $(firstChild).attr(
-        "data-uk-parallax",
-        animate("featured__section", "400", "0")
-      );
-      $(secondChild).attr(
-        "data-uk-parallax",
-        animate("featured__section", "300", "-1")
-      );
-      $(thirdChild).attr(
-        "data-uk-parallax",
-        animate("featured__section", "200", "-2")
-      );
-
-      // For event section
-      $(eventHead).attr(
-        "data-uk-parallax",
-        animate("events__section", "100", "-1")
-      );
-      $(secondChild1).attr(
-        "data-uk-parallax",
-        animate("events__section", "200", "-2")
-      );
-      $(thirdChild1).attr(
-        "data-uk-parallax",
-        animate("events__section", "300", "-1")
-      );
-      $(lastChild1).attr(
-        "data-uk-parallax",
-        animate("events__section", "400", "0")
-      );
+      // Apply the calculated opacity and transform
+      scrollDown.css({
+        opacity: opacity,
+        transform: `translate(-${translateY}px, -50%)`,
+      });
     } else {
-      // For featured Section
-      $(allChild).removeAttr("data-uk-parallax");
-      $(featuredHead).removeAttr("data-uk-parallax");
-
-      // For event section
-      $(allChild1).removeAttr("data-uk-parallax");
-      $(eventHead).removeAttr("data-uk-parallax");
+      // Hide the element completely once we're beyond the banner
+      scrollDown.css({
+        opacity: 0,
+        transform: `translate(0px, -50%)`,
+      });
     }
-  }
-
-  updateParallax(); // Initial call to set parallax based on window width
-
-  $(window).resize(function () {
-    updateParallax(); // Call the function when the window is resized
   });
 };
 
@@ -217,48 +122,31 @@ scrollAnimation = () => {
   let options = {
     threshold: 0.9,
   };
+  const animateClass = $(
+    ".animate__heading, .package__vector, .package__lotus, .animate__img, .quote__section"
+  );
 
-  let options2 = {
-    threshold: 0.5,
-  };
-
-  const animateHeading = $(".animate__heading");
-
-  // For animateHeading Loop through each heading --------------
-  animateHeading.each(function (index) {
-    let headingObserver = new IntersectionObserver((entries) => {
+  animateClass.each(function (index) {
+    let animateObserver = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting === true) {
-        // Add class to the current .step__grid
+        // Add class to the current
         $(this).addClass("visible");
       }
       // else {
-      //   // Remove class from the current .step__grid
+      //   // Remove class from the current
       //   $(this).removeClass("visible");
       // }
     }, options);
 
-    // Observe the current .step__grid
-    headingObserver.observe($(this).get(0)); // Get the first element from the jQuery collection
+    // Observe the current
+    animateObserver.observe($(this).get(0)); // Get the first element from the jQuery collection
   });
-
-  const youthEmpowerment = document.querySelector(".youth__empowerment");
-  let youthObserver = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting === true) {
-      youthEmpowerment.classList.add("visible");
-    }
-    //  else {
-    //   youthEmpowerment.classList.remove("visible");
-    // }
-  }, options2);
-  youthEmpowerment && youthObserver.observe(youthEmpowerment);
 };
 
 jQuery(document).ready(function ($) {
   headerScroll();
   menuOffcanvas();
-  bannerCarousel();
   partnerCarousel();
-  numberIncrement();
-  cardParallax();
+  scrollDown();
   scrollAnimation();
 });
